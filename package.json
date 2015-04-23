@@ -8,18 +8,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://rhooManu@github.com/RhooManu/wp-theme-emmanuelb.git"
+    "url": "https://emmanuelbeziat@github.com/EmmanuelBeziat/wp-theme-emmanuelb.git"
   },
   "keywords": [
     "dark",
     "monokai"
   ],
-  "author": "rhooManu",
+  "author": "EmmanuelBeziat",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/RhooManu/wp-theme-emmanuelb/issues"
+    "url": "https://github.com/EmmanuelBeziat/wp-theme-emmanuelb/issues"
   },
-  "homepage": "https://github.com/RhooManu/wp-theme-emmanuelb",
+  "homepage": "https://github.com/EmmanuelBeziat/wp-theme-emmanuelb",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-concat": "^2.5.2",
