@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage Emmanuel B
-* @since Emmanuel B 2.5
+ * @since Emmanuel B 2.5
  */
 ?>
 <div id="search-container" class="search-box-wrapper">

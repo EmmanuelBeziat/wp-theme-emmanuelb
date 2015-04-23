@@ -6,7 +6,7 @@
  *
  * @package WordPress
  * @subpackage EmmanuelB
-* @since Emmanuel B 2.5
+ * @since Emmanuel B 2.5
  */
 ?><!doctype html>
 <html lang="fr-FR" dir="ltr">
