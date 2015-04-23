@@ -1,0 +1,1510 @@
+/*!
+Theme Name: Emmanuel B
+Theme URI: https://github.com/RhooManu/wp-theme-emmanuelb/tree/master/wp-content/themes/emmanuelb
+Author: Emmanuel B
+Author URI: http://www.emmanuelbeziat.com
+Description: Wordpress template for my website
+Version: 2.5.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, dark, monokai
+Text Domain: emmanuelb
+License: MIT
+License URI: LICENSE
+*/
+
+/**
+ * Couleurs
+ **/
+colorBackground = #26292c
+colorText = #f8f8f2
+colorTitle = #00bbe4
+colorLink = #ed5936
+colorEmphasis = #ffaa26
+colorStrong = #c34f8f
+colorCode = #a0c546
+
+/**
+ * Mixins
+ **/
+
+// Ombres portées
+shadow-maker(iterations, fondu, couleur)
+	$shadows = '0 0 0 transparent'
+	for i in 1..iterations
+		$shadows += ', %spx %spx' % (i i) fondu couleur
+
+long-shadow(iterations, fondu, couleur)
+	text-shadow unquote(shadow-maker(iterations, fondu, couleur))
+
+// Transformations CSS
+transform(valeur)
+	-webkit-transform valeur
+	-ms-transform valeur
+	transform valeur
+
+// Blocs de couleurs (notes, alertes, dialogues)
+contextes-couleurs(couleurFond, couleurBordure, couleurTexte, icone)
+	background-color couleurFond
+	border-color couleurBordure
+	color couleurTexte
+
+	hr
+		boder-top-color darken(couleurBordure, 5%)
+
+	a
+		color darken(couleurTexte, 10%)
+
+// Notes
+note-maker(couleur, icone)
+	color couleur
+	background lighten(couleur, 90%)
+	border 1px solid lighten(couleur, 50%)
+
+	&:before
+		content icone
+
+	em
+	strong
+		color darken(couleur, 15%)
+
+// Clearfix
+clearfix()
+	&:before
+	&:after
+		content " "
+		display table
+
+	&:after
+		clear both
+
+// Positionnement
+position-angles(valeurTop, valeurRight, valeurBottom, valeurLeft)
+	top valeurTop
+	right valeurRight
+	bottom valeurBottom
+	left valeurLeft
+
+/**
+ * Tailles
+ **/
+size-widthHeader = 20em
+size-widthContent = 43.75em
+
+/**
+ * Helpers
+ **/
+@require 'helpers.styl'
+
+/**
+ * Font-face
+ **/
+@require 'fonts.styl'
+
+/**
+ * Fonts family
+ **/
+fontsBase = "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif
+fontsTitle = "Yanone Kaffeesatz", "Bebas Neue", Arial, sans-serif
+fontsCode = SourceCodePro,C onsolas, Monaco, monospace
+
+/**
+ * Animations
+ **/
+@-webkit-keyframes slide-modal-content
+	0%
+		opacity 0
+		-webkit-transform translate3d(0, -100px, 0)
+	100%
+		opacity 1
+		-webkit-transform translate3d(0, 0, 0)
+
+@keyframes slide-modal-content
+	0%
+		opacity 0
+		-webkit-transform translate3d(0, -100px, 0)
+		transform translate3d(0, -100px, 0)
+	100%
+		opacity 1
+		-webkit-transform translate3d(0, 0, 0)
+		transform translate3d(0, 0, 0)
+
+@-webkit-keyframes slide-portfolio-thumbnails
+	0%
+		opacity 0
+		-webkit-transform scale(.5, .5)
+	100%
+		opacity 1
+		-webkit-transform scale(1, 1)
+
+@keyframes slide-portfolio-thumbnails
+	0%
+		opacity 0
+		-webkit-transform scale(.5, .5)
+		transform scale(.5, .5)
+	100%
+		opacity 1
+		-webkit-transform scale(1, 1)
+		transform scale(1, 1)
+
+/**
+ * Includes
+ **/
+@require 'reset.styl'
+@require 'prism.styl'
+@require 'genericons.styl'
+
+/**
+ * Structure
+ **/
+.site-main
+	margin-left size-widthHeader
+
+.content-area
+	width size-widthContent
+	margin auto
+
+.site-content
+	margin 4em auto
+
+/**
+ * Header
+ **/
+.site-header
+	width size-widthHeader
+	float left
+
+	&:after
+		content ""
+		position fixed
+		background lighten(colorBackground, 4%)
+		width size-widthHeader
+		box-shadow 0 0 5px darken(colorBackground, 10%)
+		left 0
+		bottom 0
+		top 0
+		z-index 1
+
+	&__main
+		background lighten(colorBackground, 4%)
+		padding 1em 2.5em
+		color colorText
+		text-align center
+		position relative
+		z-index 2
+
+	&__content a:hover
+	&__content a:focus
+		color colorEmphasis
+
+	&__title
+		margin-top 0
+
+		a
+			color colorCode
+
+		a:hover
+		a:focus
+			color colorLink
+
+/**
+ * Social
+ */
+.navigation-social
+	margin 2em 0
+
+	li
+		display inline-block
+
+	&__link
+		font-size 0
+		font-weight 400
+		display block
+		width 56px
+		height 56px
+		background colorBackground
+		border-radius 5%
+		color colorText
+		overflow hidden
+		text-align center
+		-webkit-font-smoothing antialiased
+
+		&:hover
+		&:focus
+			color colorText
+
+			.gi
+				transition all .1s ease
+
+			.gi-pinterest
+				background #dc474d
+				long-shadow(35, 0, darken(#b0393e, 30%))
+
+			.gi-googleplus-alt
+				background #df664f
+				long-shadow(35, 0, darken(#b2523f, 30%))
+
+			.gi-twitter
+				background #48b9eb
+				long-shadow(35, 0, darken(#3a94bc, 30%))
+
+			.gi-facebook-alt
+				background #3b5998
+				long-shadow(35, 0, darken(#2f477a, 30%))
+
+			.gi-wordpress
+				background #464646
+				long-shadow(35, 0, darken(#383838, 30%))
+
+			.gi-linkedin
+				background #005a87
+				long-shadow(35, 0, darken(#00486c, 30%))
+
+			.gi-codepen
+				background #252527
+				long-shadow(35, 0, darken(#1e1e1f, 30%))
+
+			.gi-github
+				background #4183c4
+				long-shadow(35, 0, darken(#34699d, 30%))
+
+	.gi
+		font-size 40px
+		line-height 1.5em
+		width 56px
+		height 56px
+		transition all .5s ease
+		long-shadow(35, 0, darken(colorBackground, 20%))
+
+.secondary-menu
+	margin 4em 0
+
+	&__link
+		font 1.6em fontsTitle
+
+	.gi
+		display block
+		line-height .5em
+		margin 10px auto
+		text-align center
+		font-size 3em
+		width auto
+		height auto
+
+/**
+ * Menu principal
+ **/
+.navigation-main
+	margin 0 auto 20px
+	padding 0
+	list-style none
+	text-align right
+	width size-widthContent
+
+	&__item
+		display inline-block
+
+		a
+			display block
+			font 2em/1em fontsTitle
+			padding 20px 0 10px
+			position relative
+			transform(translateZ(0))
+
+			&:before
+			&:after
+				content ""
+				color colorText
+				opacity 0
+				z-index -1
+				transition all .6s ease
+
+			&:before
+				content "< "
+				transform(translateX(20px))
+
+			&:after
+				content " />"
+				transform(translateX(-20px))
+
+		& a:hover:before
+		& a:focus:before
+		&--current a:before
+		& a:hover:after
+		& a:focus:after
+		&--current a:after
+			opacity 1
+			transform(translateX(0px))
+
+		&--current a:before
+		&--current a:after
+			transition all 0s, color .6s ease
+
+		&--current a:hover:before
+		&--current a:hover:after
+			transition color .2s ease
+
+		&:nth-child(1) a:hover
+		&:nth-child(1) a:focus
+		&--current:nth-child(1) a
+		&--current:nth-child(1) a:hover:before
+		&--current:nth-child(1) a:focus:before
+		&--current:nth-child(1) a:hover:after
+		&--current:nth-child(1) a:focus:after
+			color colorStrong
+
+		&:nth-child(2) a:hover
+		&:nth-child(2) a:focus
+		&--current:nth-child(2) a
+		&--current:nth-child(2) a:hover:before
+		&--current:nth-child(2) a:focus:before
+		&--current:nth-child(2) a:hover:after
+		&--current:nth-child(2) a:focus:after
+			color colorTitle
+
+		&:nth-child(3) a:hover
+		&:nth-child(3) a:focus
+		&--current:nth-child(3) a
+		&--current:nth-child(3) a:hover:before
+		&--current:nth-child(3) a:focus:before
+		&--current:nth-child(3) a:hover:after
+		&--current:nth-child(3) a:focus:after
+			color colorCode
+
+		&:nth-child(4) a:hover
+		&:nth-child(4) a:focus
+		&--current:nth-child(4) a
+		&--current:nth-child(4) a:hover:before
+		&--current:nth-child(4) a:focus:before
+		&--current:nth-child(4) a:hover:after
+		&--current:nth-child(4) a:focus:after
+			color colorEmphasis
+
+/**
+ * Formulaires
+ **/
+.form
+	&-group
+		position relative
+		padding 1em 0 .5em
+		box-sizing border-box
+
+		& + &
+		& + .form-submit
+			margin-top 20px
+
+		&:before
+		&:after
+			content ""
+			height 1px
+			position absolute
+			bottom 4px
+			left 0
+			right 0
+			background lighten(colorBackground, 20%)
+
+		&:after
+			background colorCode
+			transform(scaleX(0))
+			transition transform .3s
+
+		&--label .form-label
+			transform(translateY(0) scale(.75))
+
+		&--focus
+			.form-label
+				color colorCode
+
+			&:after
+				transform(scaleX(1))
+
+	&-label
+		position relative
+		margin 0
+		display block
+		color darken(colorText, 10%)
+		line-height 1
+		transform(translateY(1.5em))
+		transition transform .3s, color .3s
+		transform-origin 0 50%
+
+	&-input
+		position relative
+		display block
+		margin 0
+		width 100%
+		padding .5em 0
+		line-height 1em
+		box-shadow none
+
+	&-submit
+		text-align right
+
+/**
+ * Contact
+ */
+.qrcode
+	height 224px
+	background url('images/qr-code.png') no-repeat
+
+/**
+ * Portfolio
+ **/
+.portfolio
+
+	&-list
+		clearfix()
+		width size-widthContent + 1.250
+		margin 40px 0 0 -20px
+
+	&__item
+		float left
+		margin 0 0 20px 20px
+		box-shadow 0 0 5px #222528
+
+	&__link
+		display block
+		width 340px
+		height 160px
+		position relative
+		overflow hidden
+
+		&:focus
+		&:hover
+			.portfolio-caption
+				opacity 1
+				transform(translateY(0))
+				transition opacity .4s ease-in, transform .2s ease-in
+
+				&__title
+				.portfolio-categories
+					transform(translateY(0))
+					transition all .6s ease
+
+	&__image
+		text-align center
+
+	&__thumbnail
+		display inline-block
+		max-width 100%
+		vertical-align bottom
+
+	&-caption
+		opacity 0
+		position absolute
+		position-angles(0, 0, 0, 0)
+		background rgba(0,0,0,.6)
+		padding 10px
+		text-shadow 0 1px 4px rgba(0,0,0,0.5)
+		transition all .4s ease-out, opacity .6s ease-out
+		transform(translateY(50%))
+
+		&__title
+			color colorText
+			font-size 2.25em
+			margin 0 0 10px
+			transform(translateY(100%))
+			transition tranform 2s ease
+
+	&-red
+		background colorLink
+	&-blue
+		background colorTitle
+	&-green
+		background colorCode
+	&-yellow
+		background colorEmphasis
+	&-pink
+		background colorStrong
+	&-black
+		background lighten(colorBackground, 5%)
+
+	&__thanks
+		color colorCode
+		text-align right
+		i
+			color colorLink
+
+	&-categories
+		position absolute
+		position-angles(auto, 10px, 10px, auto)
+		transform(translateY(100%))
+		transition tranform 2s ease
+
+		&__item
+			display inline-block
+			color colorText
+			.gi
+				font-size 2.25em
+				width auto
+				height auto
+
+/**
+ * Page single portfolio
+ */
+.portfolio-single
+
+	&__thumbnail
+		text-align center
+		border-radius 4px
+		padding 40px 0
+
+		/*img
+			opacity 0
+			transform(scale(.5, .5))
+			-webkit-animation-name slide-portfolio-thumbnails
+			-webkit-animation-duration 1s
+			-webkit-animation-delay .15s
+			-webkit-animation-fill-mode forwards
+			animation-name slide-portfolio-thumbnails
+			animation-duration 1s
+			animation-delay .15s
+			animation-fill-mode forwards*/
+
+	&__title
+		margin .6em 0 0
+
+	&__header
+		margin-bottom 40px
+
+	&-meta
+
+		&__label
+			font-weight 700
+			color colorEmphasis
+			margin-right 20px
+
+		&__category
+			margin-right 10px
+
+			.gi
+				vertical-align baseline
+				transform(translateY(4px))
+				width auto
+				height auto
+				color colorCode
+				font-size 1.25em
+
+/**
+ * Posts
+ **/
+.post
+
+	&-header
+		margin-bottom 40px
+
+		&__title
+			margin 1.5em 0 2px
+
+			a
+				color colorTitle
+
+				&:hover
+					color colorEmphasis
+
+	&-meta
+		&--header
+			color colorEmphasis
+			font-size .85em
+			font-weight 200
+
+		&--footer
+			margin-top .5em
+
+	&-share
+		float left
+
+		li
+			display inline-block
+			vertical-align bottom
+
+		a
+			display block
+			font-size 0
+			background lighten(colorBackground, 4%)
+			color colorText
+			overflow hidden
+			text-align center
+			border-radius 2px
+			height 32px
+
+		.gi
+			font-size 22px
+			line-height 32px
+			long-shadow(20, 0, darken(colorBackground, 20%))
+			height 32px
+			width 32px
+			transition all .6s ease
+
+		&__link
+			&:hover
+			&:focus
+				.gi
+					transition all .1s ease
+
+				.gi-googleplus-alt
+					background #df664f
+					long-shadow(35, 0, darken(#b2523f, 30%))
+
+				.gi-twitter
+					background #48b9eb
+					long-shadow(35, 0, darken(#3a94bc, 30%))
+
+				.gi-facebook-alt
+					background #3b5998
+					long-shadow(35, 0, darken(#2f477a, 30%))
+
+				.gi-linkedin
+					background #005a87
+					long-shadow(35, 0, darken(#00486c, 30%))
+
+	&-footer
+		&__edit-link
+		&__comments-link
+			display inline-block
+
+			a
+				border-radius 2px
+				background colorLink
+				color colorText
+				display block
+				padding 4px 10px
+
+				&:focus
+				&:hover
+					background colorEmphasis
+
+			.gi
+				line-height 1
+				font-family genericons
+				display inline-block
+				font-size 1.5em
+				vertical-align bottom
+				height auto
+				width auto
+
+		&__links
+			float right
+
+		&__container
+			overflow auto
+			padding 0 0 5px
+
+		&__categories
+		&__tag-links
+			font-size .8em
+
+			a
+				color colorCode
+
+				&:hover
+				&:focus
+					color colorEmphasis
+
+	&-content
+		text-align justify
+
+		h3 + p
+			margin-top 0
+
+		code
+			font-size .9em
+
+		ul
+		ol
+			margin 0 0 20px 0
+
+		img
+			max-width 100%
+
+.tags-links
+	&__list
+		display inline-block
+
+	&__item
+		display inline-block
+		margin-left 3px
+
+.post-footer__tag-links
+	.gi-tag
+		margin-right 5px
+		font-size 1.6em
+		vertical-align top
+
+/**
+ * Post navigation
+ **/
+.back-top
+	border-radius 2px
+	background colorCode
+	float right
+	margin-top 4px
+	color colorBackground
+	display block
+	padding 4px 10px
+	margin-left 10px
+
+	&:hover
+	&:focus
+		background colorEmphasis
+		color colorText
+
+	.gi
+		font-size 1.25em
+		width auto
+		height auto
+
+.more
+	&-link
+		display inline-block
+		margin .5em 0
+		color colorTitle
+
+		&:hover
+		&:focus
+			color colorEmphasis
+
+		&:before
+		&:after
+			content ""
+			display block
+			clear right
+
+.more-link .gi
+.nav-next .gi
+	line-height 1.4em
+	position relative
+	font-size 1.2em
+	right 0
+	transition right .2s linear
+
+.nav-previous .gi
+	line-height 1.4em
+	position relative
+	font-size 1.2em
+	left 0
+	transition left .2s linear
+
+.more-link:hover
+.more-link:focus
+.nav-next:hover
+.nav-next:focus
+	.gi
+		right -5px
+
+.nav-previous:hover
+.nav-previous:focus
+	.gi
+		left -5px
+
+.paging-navigation
+.post-navigation
+	overflow hidden
+	margin .5em 0
+
+.navigation--top
+	margin-bottom 1.5em
+
+.navigation--bottom
+	margin-top 1.5em
+
+.nav-previous
+	float left
+	width auto
+
+	a:before
+		content '\f430'
+		font 400 1.429em/1em Genericons
+		margin-right 2px
+		vertical-align bottom
+		position relative
+		left -1px
+		transition left .2s ease-in-out
+
+	a:hover:before
+		left -5px
+
+.nav-next
+	float right
+	width auto
+	text-align right
+
+	a:after
+		content '\f429'
+		font 400 1.429em/1em Genericons
+		margin-left 2px
+		vertical-align bottom
+		position relative
+		right -1px
+		transition right .2s ease-in-out
+
+	a:hover:after
+		right -5px
+
+/**
+ * Dialog Box
+ **/
+.dialog
+	perspective 1300px
+	position fixed
+	top 50%
+	left 50%
+	width 50%
+	max-width 630px
+	min-width 320px
+	height auto
+	z-index 2000
+	visibility hidden
+	backface-visibility hidden
+	transform translateX(-50%) translateY(-50%)
+
+	&-overlay
+		content ""
+		position fixed
+		visibility hidden
+		top 0
+		left 0
+		right 0
+		bottom 0
+		z-index 1000
+		opacity 0
+		background rgba(0,0,0,.7)
+		transition all .3s
+
+	&__content
+		transform-style preserve-3d
+		transform rotateY(-70deg)
+		transition all .3s
+		opacity 0
+		border-radius 3px
+
+	&--open
+		visibility visible
+
+		& ~ .dialog-overlay
+			opacity 1
+			visibility visible
+
+	&--open
+		.dialog__content
+			transform rotateY(0deg)
+			opacity 1
+
+		.dialog__close
+			-webkit-animation slide-modal-content .4s both
+			-webkit-animation-delay .15s
+			animation slide-modal-content .4s both
+			animation-delay .15s
+
+		.dialog__body
+			-webkit-animation slide-modal-content .5s both
+			-webkit-animation-delay .25s
+			animation slide-modal-content .5s both
+			animation-delay .25s
+
+	&--success
+		.dialog__header
+		.dialog__close
+			background #3c763d
+			color #fff
+
+		.dialog__close:hover
+		.dialog__close:focus
+			background lighten(#3c763d, 20%)
+
+		.dialog__content
+			background #dff0d8
+			color #3c763d
+		& ~ .dialog-overlay
+			background rgba(60,118,61,.6)
+
+	&--alert
+		.dialog__header
+		.dialog__close
+			background #a94442
+			color #fff
+
+		.dialog__close:hover
+		.dialog__close:focus
+			background lighten(#a94442, 20%)
+
+		.dialog__content
+			background #f2dede
+			color #a94442
+
+		& ~ .dialog-overlay
+			background rgba(169,68,68,.6)
+
+	&__header
+		text-align center
+		font-size 2.4em
+		font-weight 300
+		line-height 1.2
+		padding .4em
+
+	&__body
+		padding 24px
+
+	&__footer
+		text-align center
+		padding 0 24px 16px
+
+.middle-title
+	margin-top 3em
+
+/**
+ * Notes
+ **/
+.note
+	position relative
+	z-index 5
+	padding 1em 1em 1em 4em
+	margin 3em 0
+	border-radius 4px
+
+	&:before
+		content ""
+		font-family genericons
+		font-size 2em
+		position absolute
+		left .5em
+
+	a
+		font-weight 700
+		color inherit
+
+		&:hover
+			text-decoration underline
+			color inherit
+
+	&--info
+		note-maker(#31708f, "\f455")
+
+	&--question
+		note-maker(#333, "\f457")
+
+	&--alert
+		note-maker(#b94a48, "\f414")
+
+	&--important
+		note-maker(#8a6d3b, "\f456")
+
+	&--success
+		note-maker(#3c763d, "\f456")
+
+/**
+ * Recherche
+ */
+.search-box
+	margin-bottom 40px
+
+.button-search
+	position absolute
+	right 0
+	bottom 6px
+	padding 0 8px
+
+/**
+ * Commentaires
+ **/
+.comments
+	margin-top 3em
+	border-top 1px solid lighten(colorBackground, 20%)
+	padding-top 2em
+
+	&__title
+		margin-bottom .65em
+
+.comment
+	margin 10px auto
+
+	&-body
+		background lighten(colorBackground, 4%)
+		border-radius 3px
+		overflow hidden
+
+	&-list
+		list-style none
+		margin 0
+		padding 0
+
+	&__content
+		overflow hidden
+		text-overflow ellipsis
+		padding 24px
+		text-align justify
+
+		& > :first-child
+			margin-top 0
+
+		& > :last-child
+			margin-bottom 0
+
+		h1
+		h2
+		h3
+		h4
+		h5
+			font-size 1.25em
+			margin 0
+
+			pre
+				background darken(colorBackground, 10%)
+				padding .5em
+				color colorText
+				font-size .875em
+				border-radius 2px
+
+	&__footer
+		padding 0 .5em .5em
+		text-align right
+
+	&__header
+		padding .5em
+		background lighten(colorBackground, 6%)
+		overflow auto
+		color colorText
+
+			.fn
+			a
+				color colorBackground
+
+			a:hover
+			a:focus
+				color colorEmphasis
+
+	&__meta
+		float right
+		line-height 1
+		font-size .865em
+		padding-top 6px
+
+		a
+			color darken(colorText, 20%)
+
+			&:hover
+			&:focus
+				color colorText
+
+	&__author
+		font-family fontsTitle
+		font-size 1.25em
+		line-height 1.2
+		float left
+		width auto
+
+		.fn
+		.says
+			font-style normal
+			color colorText
+
+		a
+			color colorLink
+
+			&:focus
+			&:hover
+				color colorEmphasis
+
+	&-reply-link
+		display inline-block
+		background colorLink
+		padding 2px 6px
+		color colorText
+		border-radius 2px
+
+		&:before
+			content '\f467'
+			font-family genericons
+			display inline-block
+			margin-right 2px
+			font-size 1.2em
+			vertical-align bottom
+
+		&:hover
+		&:focus
+			background colorEmphasis
+			color colorText
+
+.form-allowed-tags
+	display none
+
+.fn
+	font-weight 400
+
+.children
+	list-style none
+	padding 0
+	margin-left 2em
+	position relative
+
+	&:before
+		content '\f412'
+		font 1.4em genericons
+		left -1.4em
+		top 5px
+		position absolute
+
+.bypostauthor
+	& > .comment-body
+		.comment__header
+			background colorCode
+
+		.comment__author
+			/*.fn:before
+				content '\f408'
+				font-family genericons
+				color colorEmphasis
+				font-size .8em
+				vertical-align middle*/
+
+			a
+				color colorBackground
+
+			.says
+				color colorBackground
+
+			a:hover
+			a:focus
+				color colorText
+
+		.comment__meta
+			a
+				color colorText
+
+				&:hover
+				&:focus
+					color colorBackground
+
+.comment-respond
+	margin-top 4em
+
+#wmd-button-barcomment
+	width (content-width - 15px)
+	margin-left 8.5em
+
+.wmd-button
+	background-color lightback
+	border-radius 2px
+
+
+/**
+ * Accueil
+ */
+.main-title
+	text-align center
+	font-family fontsTitle
+	line-height 1
+	margin-bottom 2em
+	word-wrap break-word
+
+.hcard
+	&__name
+		font-size 2.15em
+		color colorCode
+
+	&__age
+		color colorLink
+		font-size 1.6em
+
+	&__status
+		color #fff
+		font-size 1.6em
+		margin-left 15px
+
+	&__job
+		color colorEmphasis
+		font-size 1.65em
+
+	&__job--alt
+		color colorTitle
+		font-size 2em
+
+.skill
+	&__list
+		margin 0 0 10px 0
+		padding 0
+		list-style none
+		display inline-block
+		vertical-align top
+
+		& + &
+			margin-left 2.143em
+
+	&__item
+		width 12.96em
+		width calc(15em - 2.05em)
+		margin-bottom 10px
+		padding-bottom 10px
+		position relative
+
+		&:before
+			position absolute
+			bottom 0
+			left 0
+			right 0
+			content " "
+			height 6px
+			background lighten(colorBackground, 10%)
+			z-index 4
+
+		&:after
+			position absolute
+			bottom 0
+			left 0
+			content ""
+			height 6px
+			background colorCode
+			z-index 5
+
+[data-skill="10"]:after
+	width 10%
+
+[data-skill="20"]:after
+	width 20%
+
+[data-skill="30"]:after
+	width 30%
+
+[data-skill="40"]:after
+	width 40%
+
+[data-skill="50"]:after
+	width 50%
+
+[data-skill="60"]:after
+	width 60%
+
+[data-skill="70"]:after
+	width 70%
+
+[data-skill="80"]:after
+	width 80%
+
+[data-skill="90"]:after
+	width 90%
+
+[data-skill="100"]:after
+	width 100%
+
+/**
+ * Footer
+ */
+.site-footer
+	color colorText
+	padding 1em 2.5em
+	text-align center
+
+/**
+ * Media Queries
+ */
+@media screen and (max-width 1080px)
+	.hidden-sm
+		display none !important
+
+	.site
+		&-header
+		&-header__main
+			width auto
+			float none
+			overflow auto
+
+			&:after
+				display none
+
+			&__main
+				margin 0
+
+			&__title
+				float left
+				width auto
+				margin 0
+
+		&-main
+			margin 0
+
+	.navigation-social
+		float right
+		width auto
+		margin 0
+		padding-bottom 1em
+
+		li
+			vertical-align top
+
+	.copyright
+	.portrait
+		display none
+
+	.secondary-menu
+		clear both
+		overflow auto
+		margin 0
+		padding-top 1em
+		padding-top calc(1em - 4px)
+		border-top 4px solid back
+		text-align left
+
+		li
+			display inline-block
+
+	.secondary-menu__link .gi
+		font-size 1em
+		display inline-block
+		margin-right 10px
+
+	.navigation-main
+		width auto
+		margin 0
+		padding 0 1em
+		border-bottom 4px solid title
+
+@media screen and (min-width 1080px)
+	.hidden-xl
+		display none !important
+
+@media screen and (max-width 820px)
+	.site-header__title
+	.navigation-social
+		float none
+
+	.navigation-social
+		margin-top 1em
+
+@media screen and (max-width 795px)
+	.hidden-xs
+		display none !important
+
+	.secondary-menu
+		display none
+
+	.navigation-main
+		float none
+		text-align center
+
+	.content-area
+		width auto
+		padding 0 2.5em
+
+	.qrcode
+		width 224px
+		margin 2em auto
+
+	.skill
+		&__list
+			width auto
+			display block
+			margin 0
+
+			& + &
+				margin-left 0
+
+		&__item
+			width auto
+			font-size 1.1em
+			text-align left
+			padding 5px 10px
+			color back
+			text-shadow 0 1px 2px rgba(255,255,255,.6)
+
+			&:after
+			&:before
+				height auto
+				top 0
+				z-index -1
+
+			&:before
+				z-index -2
+
+	.hcard
+		&__name
+			font-size 12.9vw
+
+		&__age
+		&__status
+			font-size 9.5vw
+
+		&__job
+			font-size 10vw
+
+		&__job--alt
+			font-size 12vw
+
+	pre[class*="language-"]
+	.note
+		padding 1em 2.5em
+		max-width none
+		margin .5em -2.5em
+		border-radius 0
+		border-left 0
+		border-right 0
+
+	.note
+		padding-left 3.5em
+
+	.portfolio
+		&__item
+			width auto
+			margin 0
+			float none
+
+			& + &
+				margin-top 10px
+		&__link
+			width auto
+
+		&-list
+			width auto
+			margin 0
+
+@media screen and (max-width 585px)
+	body
+		min-width 300px
+
+	h1
+		font-size 2.8em
+	h2
+		font-size 2.5em
+	h3
+		font-size 1.4em
+
+	.navigation-social
+		width 15em
+		margin 1em auto 0
+
+		li
+			margin-bottom 4px
+
+	.navigation-main__item a
+		padding 20px 5px 10px 5px
+
+		&:after
+		&:before
+			display none
+
+	.hcard__name
+	.hcard__age
+	.hcard__status
+	.hcard__job
+	.hcard__job--alt
+		font-size 1em
+		margin 0
+
+	.children
+		margin-left 0
+
+	.post-footer__tag-links
+		display none
+
+	.post-content
+		text-align left
+
+	.post-share
+	.post-footer__links
+		float none
+
+	.post-footer__links
+		margin-top 10px
+
+	.portfolio
+		&__link
+			height auto

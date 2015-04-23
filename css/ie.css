@@ -1,0 +1,108 @@
+/**
+ * Global Styles for older IE versions (previous to IE9).
+ */
+
+pre,
+fieldset,
+table,
+th,
+td,
+input,
+textarea {
+	border: 1px solid #e5e5e5;
+}
+
+hr {
+	background-color: #e5e5e5;
+}
+
+button,
+input,
+select,
+textarea {
+	vertical-align: middle;
+}
+
+
+input:focus,
+textarea:focus {
+	border: 1px solid #b2b2b2;
+}
+
+.site-content blockquote.alignleft,
+.site-content blockquote.alignright {
+	border-top: 1px solid #e5e5e5;
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.post-thumbnail,
+a.post-thumbnail:hover {
+	background: transparent;
+}
+
+.list-view .site-content .hentry {
+	border-top: 1px solid #e5e5e5;
+	padding-top: 48px;
+}
+
+.gallery-caption {
+	background: #000;
+	filter: alpha(opacity=0);
+}
+
+.gallery-item:hover .gallery-caption {
+	filter: alpha(opacity=70);
+}
+
+.nav-links {
+	border-top: 1px solid #e5e5e5;
+}
+
+.post-navigation a,
+.image-navigation .previous-image,
+.image-navigation .next-image,
+.contributor {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.contributor-avatar,
+.comment-author .avatar {
+	border: 1px solid #e5e5e5;
+}
+
+.comment-list article,
+.comment-list .pingback,
+.comment-list .trackback {
+	border-top: 1px solid #e5e5e5;
+}
+
+.comment-list .reply {
+	margin-top: 0;
+}
+
+
+/**
+ * Internet Explorer 8
+ */
+
+img.size-full,
+img.size-large,
+img.header-image,
+img.wp-post-image,
+img[class*="align"],
+img[class*="wp-image-"],
+img[class*="attachment-"] {
+	height: auto;
+	width: auto; /* Prevent stretching of full-size and large-size images with height and width attributes in IE8 */
+}
+
+
+/**
+ * IE7 and IE6 hacks
+ */
+
+.gi {
+	*overflow: auto;
+	*zoom: 1;
+	*display: inline;
+}
