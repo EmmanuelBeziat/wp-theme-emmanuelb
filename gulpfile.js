@@ -15,9 +15,9 @@ var gulp = require('gulp'),
 gulp.task('stylus', function() {
 	return gulp.src(templatePath + 'stylus/style.styl')
 		.pipe(sourcemaps.init())
-		.pipe(stylus({
-			compress: true
-		}))
+			.pipe(stylus({
+				compress: true
+			}))
 		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest(templatePath));
 });
