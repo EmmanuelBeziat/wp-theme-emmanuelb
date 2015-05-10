@@ -29,9 +29,9 @@ gulp.task('stylus', function() {
 gulp.task('javascript', function() {
 	return gulp.src(templatePath + 'js/main.js')
 		.pipe(sourcemaps.init())
-		.pipe(uglify())
+			.pipe(uglify())
+			.pipe(rename('main.min.js'))
 		.pipe(sourcemaps.write('../maps'))
-		.pipe(rename('main.min.js'))
 		.pipe(gulp.dest(templatePath + 'js/'));
 });
 
