@@ -4,8 +4,7 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	sourcemaps = require('gulp-sourcemaps'),
 	rename = require('gulp-rename'),
-	imagemin = require('gulp-imagemin'),
-	templatePath = 'wp-content/themes/emmanuelb/';
+	imagemin = require('gulp-imagemin');
 
 /**
  * Sauvegarde et compresse les fichiers stylus dans un unique fichier style.css
@@ -13,13 +12,13 @@ var gulp = require('gulp'),
  * Crée un fichier sourcemap dans /maps/
  **/
 gulp.task('stylus', function() {
-	return gulp.src(templatePath + 'stylus/style.styl')
+	return gulp.src('stylus/style.styl')
 		.pipe(sourcemaps.init())
 			.pipe(stylus({
 				compress: true
 			}))
-		.pipe(sourcemaps.write('maps'))
-		.pipe(gulp.dest(templatePath));
+		.pipe(sourcemaps.write('../maps'))
+		.pipe(gulp.dest(''));
 });
 
 /**
@@ -27,27 +26,29 @@ gulp.task('stylus', function() {
  * Crée un fichier sourcemap dans /maps/
  **/
 gulp.task('javascript', function() {
-	return gulp.src(templatePath + 'js/main.js')
+	return gulp.src(['js/plugins/*.js', 'js/main.js'])
 		.pipe(sourcemaps.init())
-			.pipe(uglify())
-			.pipe(rename('main.min.js'))
+			.pipe(uglify({
+				preserveComments: 'some'
+			}))
+			.pipe(concat('main.min.js'))
 		.pipe(sourcemaps.write('../maps'))
-		.pipe(gulp.dest(templatePath + 'js/'));
+		.pipe(gulp.dest('js/'));
 });
 
 /**
  * Compresse les images
  **/
 gulp.task('images', function() {
-	return gulp.src(templatePath + 'images/**/*')
+	return gulp.src('images/**/*')
 		.pipe(imagemin())
-		.pipe(gulp.dest(templatePath + 'images'));
+		.pipe(gulp.dest('images'));
 });
 
 gulp.task('default', ['stylus', 'javascript', 'images'], function() {
 });
 
 gulp.task('watch', function() {
-	gulp.watch(templatePath + 'stylus/*.styl', ['stylus']);
-	gulp.watch(templatePath + 'js/*.js', ['javascript']);
+	gulp.watch('stylus/*.styl', ['stylus']);
+	gulp.watch('js/*.js', ['javascript']);
 });

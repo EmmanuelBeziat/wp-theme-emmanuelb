@@ -148,36 +148,6 @@ var emmanuelb = (function($, undefined) {
 	};
 
 	/**
-	 * Comportement des formulaires
-	 */
-	var formMaterial = function() {
-
-		var $input = $('.form-input'),
-			classeFocus = 'form-group--focus',
-			classeLabel = 'form-group--label';
-
-		$input
-			.on('focus', function() {
-				$(this).parent().addClass(classeFocus + ' ' + classeLabel);
-			})
-			.on('blur', function() {
-				var $parent = $(this).parent();
-
-				if ($(this).val() === '') {
-					$parent.removeClass(classeLabel);
-				}
-
-				$parent.removeClass(classeFocus);
-			});
-
-		$input.each(function() {
-			if ($(this).val() !== '') {
-				$(this).parent().addClass(classeLabel);
-			}
-		});
-	};
-
-	/**
 	 * Popup des liens de partage (réseaux sociaux)
 	 * @param  {event} event [description]
 	 */
@@ -199,7 +169,7 @@ var emmanuelb = (function($, undefined) {
 		menuCreator();
 
 		// Comportement des formulaires
-		formMaterial();
+		$('#contact-form').modernForm();
 
 		// Envoi de mail
 		$('#contact-form').on('submit', sendMail);
