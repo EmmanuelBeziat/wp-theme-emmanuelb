@@ -1,81 +1,124 @@
 /*!
- * Système d'onglets automatisé
- * Version : 2.1
- * Par Emmanuel "Manumanu" B. (www.emmanuelbeziat.com)
+ * Automatic tabs system
+ * Version : 3.1
+ * Emmanuel B. (www.emmanuelbeziat.com)
  * https://github.com/EmmanuelBEziat/jQuery-Tabs
  **/
 
-;(function($, undefined) {
-	"use strict";
+;(function($, window, document, undefined) {
+	'use strict';
 
-	$.fn.tabs = function(params) {
-
-		// Valeurs par défauts des options
-		params = $.extend({
+	/**
+	 * Default values
+	 */
+	var pluginName = 'tabs',
+		defaults = {
 			mode: 'fade',
 			anchors: false,
 			duration: 400,
 			class: 'selected'
-		}, params);
+		};
 
-		// Variables globales
-		var page = $('html, body'),
-			tabAnchor = window.location.hash;
+	/**
+	 * Constructor
+	 */
+	var Plugin = function(element, options) {
+		this.element = element;
 
-		this.each(function() {
+		this.settings = $.extend({}, defaults, options);
 
-			// Variables
-			var tabContainer = $(this),
-				tabFirst = tabContainer.find('li:first a'),
+		this._defaults = defaults;
+		this._name = pluginName;
+
+		this.init();
+	};
+
+	/**
+	 * Methods
+	 */
+	$.extend(Plugin.prototype, {
+
+		init: function() {
+
+			/**
+			 * Variables
+			 */
+			var plugin = this,
+				settings = plugin.settings,
+				$tabContainer = $(plugin.element),
+				$tabFirst = $tabContainer.find('li:first a'),
 				tabCurrent = null,
+				tabAnchor = window.location.hash,
 				tabID = null;
 
-			// Attribuer l'onglet par défaut comme étant le premier, ou utiliser l'ancre
-			if (true === params.anchors && '' !== tabAnchor && tabContainer.find('a[data-toggle="tab"]'))
-				tabFirst = tabContainer.find('a[href="' + tabAnchor + '"]');
+			/**
+			 * Set the default tab active as the first, or use the anchor from the url
+			 */
+			if (settings.anchors && '' !== tabAnchor && $tabContainer.find('a[data-toggle="tab"]')) {
+				$tabFirst = $tabContainer.find('a[href="' + tabAnchor + '"]');
+			}
 
-			// Appliquer la class select sur l'onglet actuel
-			tabFirst.parent().addClass(params.class);
+			/**
+			 * Apply class on the first tab
+			 */
+			$tabFirst.parent().addClass(plugin.settings.class);
 
-			// Afficher l'élément par défaut correspondant à celui de l'onglet par défaut ou l'onglet ancré
-			tabCurrent = tabFirst.attr('href');
+			/**
+			 * Show the current tab by default
+			 */
+			tabCurrent = $tabFirst.attr('href');
 			$(tabCurrent).show().siblings().hide();
 
-			// Gestion de l'événement clic
-			tabContainer.on('click', 'a[data-toggle="tab"]', function(event) {
-
+			$tabContainer.on('click', 'a[data-toggle="tab"]', function(event) {
 				tabID = $(this).attr('href');
 
-				// Si l'élément n'est pas déjà sélectionné
+				/**
+				 * If a link is clicked, but not the current active one
+				 */
 				if (tabID != tabCurrent) {
-
-					// Afficher le contenu demandé et masquer le contenu restant
-					switch (params.mode) {
+					switch (settings.mode) {
 						case ('slide'):
 							$(tabID).siblings().slideUp();
-							$(tabID).delay(params.duration).slideDown();
+							$(tabID).delay(settings.duration).slideDown();
 							break;
 						default:
-							$(tabID).fadeIn(params.duration).siblings().hide();
+							$(tabID).fadeIn(settings.duration).siblings().hide();
 							break;
 					}
 
-					// Retirer la classe des autres onglets et l'ajouter sur l'élément sélectionné
-					$(this).parent().addClass(params.class).siblings().removeClass(params.class);
+					/**
+					 * Remove the class from other items and add it on the selected
+					 */
+					$(this).parent().addClass(settings.class).siblings().removeClass(settings.class);
 					tabCurrent = tabID;
 				}
 
-				// Empêche le déclenchement du lien si voulu
-				if (params.anchors)
+				/**
+				 * Stop the page to scroll to anchor if needed
+				 */
+				if (true === settings.anchors) {
 					setTimeout(function() {
-						page.scrollTop(0, 0);
+						$('html, body').scrollTop(0, 0);
 					}, 1);
-				else
+				}
+				else {
 					event.preventDefault();
+				}
 			});
+		}
+
+	});
+
+	/**
+	 * jQuery plugin wrapper
+	 */
+	$.fn[pluginName] = function(options) {
+
+		return this.each(function() {
+			if (!$.data(this, 'plugin_' + pluginName)) {
+				$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+			}
 		});
 
-		// Chainage jQuery
-		return this;
 	};
-})(jQuery);
+ })(jQuery, window, document);

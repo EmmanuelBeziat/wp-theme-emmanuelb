@@ -12,47 +12,47 @@ ga('send', 'pageview');
   Fonction principale du site
  */
 var emmanuelb = (function($, undefined) {
-	"use strict";
+	'use strict';
 
 	/**
 	 * Préparer et créer le menu principal
 	 */
 	var menuCreator = function() {
 
-		var sURL = window.location.pathname.split("/"),
+		var sURL = window.location.pathname.split('/'),
 			sURLpage = sURL[1],
 			sURLanchor = window.location.hash,
-			sClassName = "navigation-main__item--current",
+			sClassName = 'navigation-main__item--current',
 			$menu = $("#main-menu"),
 			$menuItemAccueil = $menu.find('a[href="/#accueil"]').parent(),
 			$menuItemPortfolio = $menu.find('a[href="/#portfolio"]').parent(),
 			$menuItemBlog = $menu.find('a[href="/blog/"]').parent(),
 			$menuItemContact = $menu.find('a[href="/#contact"]').parent();
 
-		$menuItemAccueil.find("a").attr("data-toggle", "tab");
-		$menuItemPortfolio.find("a").attr("data-toggle", "tab");
-		$menuItemContact.find("a").attr("data-toggle", "tab");
+		$menuItemAccueil.find('a').attr('data-toggle', 'tab').attr('href', '#accueil');
+		$menuItemPortfolio.find('a').attr('data-toggle', 'tab').attr('href', '#portfolio');
+		$menuItemContact.find('a').attr('data-toggle', 'tab').attr('href', '#contact');
 
 		// Ajout des classes et des attributs sur les éléments
-		if (sURLpage === "blog") {
+		if (sURLpage === 'blog') {
 			$menuItemBlog.addClass(sClassName);
 		}
 		else {
 			if ($.fn.tabs) {
 				$menu.tabs({
-					"anchors": true,
-					"class": "navigation-main__item--current"
+					'anchors': true,
+					'class': 'navigation-main__item--current'
 				});
 			}
 
 			switch (sURLanchor) {
-				case "#accueil":
+				case '#accueil':
 					$menuItemAccueil.addClass(sClassName);
 					break;
-				case "#portfolio":
+				case '#portfolio':
 					$menuItemPortfolio.addClass(sClassName);
 					break;
-				case "#contact":
+				case '#contact':
 					$menuItemContact.addClass(sClassName);
 					break;
 				default:
@@ -170,6 +170,7 @@ var emmanuelb = (function($, undefined) {
 
 		// Comportement des formulaires
 		$('#contact-form').modernForm();
+		$('.search-form').modernForm();
 
 		// Envoi de mail
 		$('#contact-form').on('submit', sendMail);

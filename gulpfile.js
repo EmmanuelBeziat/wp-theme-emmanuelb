@@ -26,7 +26,7 @@ gulp.task('stylus', function() {
  * Crée un fichier sourcemap dans /maps/
  **/
 gulp.task('javascript', function() {
-	return gulp.src(['js/plugins/*.js', 'js/main.js'])
+	return gulp.src(['js/vendors/*.js', 'js/plugins/*.js', 'js/main.js'])
 		.pipe(sourcemaps.init())
 			.pipe(uglify({
 				preserveComments: 'some'
