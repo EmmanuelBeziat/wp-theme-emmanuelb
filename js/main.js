@@ -41,7 +41,7 @@ var emmanuelb = (function($, undefined) {
 			if ($.fn.tabs) {
 				$menu.tabs({
 					'anchors': true,
-					'class': 'navigation-main__item--current'
+					'class': sClassName
 				});
 			}
 
