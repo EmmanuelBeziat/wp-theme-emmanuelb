@@ -19,8 +19,6 @@
 			</footer><!-- #footer -->
 		</div>
 
-		<script src="http://cdn.infographizm.com/javascript/jquery/jquery-1.11.2.min.js"></script>
-		<script src="<?php echo get_template_directory_uri(); ?>/js/plugins.min.js"></script>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/main.min.js"></script>
 		<script async src="http://cdn.infographizm.com/javascript/twitter/widgets.js"></script>
 		<?php //wp_footer(); ?>
