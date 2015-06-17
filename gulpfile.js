@@ -2,8 +2,8 @@ var gulp = require('gulp'),
 	stylus = require('gulp-stylus'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-	sourcemaps = require('gulp-sourcemaps'),
 	rename = require('gulp-rename'),
+	sourcemaps = require('gulp-sourcemaps'),
 	imagemin = require('gulp-imagemin');
 
 /**
