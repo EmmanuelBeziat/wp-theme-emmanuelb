@@ -4,7 +4,7 @@
  *
  * @package WordPress
  * @subpackage EmmanuelB
- * @since Emmanuel B 2.5
+* @since Emmanuel B 2.5
  */
 
 get_header(); ?>

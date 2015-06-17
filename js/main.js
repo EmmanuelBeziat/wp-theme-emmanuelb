@@ -171,6 +171,7 @@ var emmanuelb = (function($, undefined) {
 		// Comportement des formulaires
 		$('#contact-form').modernForm();
 		$('.search-form').modernForm();
+		$('.comment-form').modernForm();
 
 		// Envoi de mail
 		$('#contact-form').on('submit', sendMail);

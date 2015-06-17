@@ -30,6 +30,8 @@
 		this._defaults = defaults;
 		this._name = pluginName;
 
+		this._body = $('html, body');
+
 		this.init();
 	};
 
@@ -98,7 +100,7 @@
 				 */
 				if (true === settings.anchors) {
 					setTimeout(function() {
-						$('html, body').scrollTop(0, 0);
+						plugin._body.scrollTop(0, 0);
 					}, 1);
 				}
 				else {
@@ -115,8 +117,11 @@
 	$.fn[pluginName] = function(options) {
 
 		return this.each(function() {
-			if (!$.data(this, 'plugin_' + pluginName)) {
-				$.data(this, 'plugin_' + pluginName, new Plugin(this, options));
+			var _oPlugin;
+
+			if ( $.data( this, 'plugin_' + pluginName ) !== true ) {
+				_oPlugin = new Plugin( this, options );
+				$.data( this, 'plugin_' + pluginName, true );
 			}
 		});
 
