@@ -22,7 +22,7 @@ gulp.task('stylus', function() {
 				browsers: ['last 3 versions'],
 				cascade: false
 			}))
-		.pipe(sourcemaps.write('../maps'))
+		.pipe(sourcemaps.write('maps'))
 		.pipe(gulp.dest(''));
 });
 
