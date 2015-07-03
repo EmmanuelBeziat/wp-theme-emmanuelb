@@ -39,8 +39,6 @@ long-shadow(iterations, fondu, couleur)
 
 // Transformations CSS
 transform(valeur)
-	-webkit-transform valeur
-	-ms-transform valeur
 	transform valeur
 
 // Blocs de couleurs (notes, alertes, dialogues)
@@ -106,46 +104,12 @@ size-widthContent = 43.75em
  **/
 fontsBase = "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif
 fontsTitle = "Yanone Kaffeesatz", "Bebas Neue", Arial, sans-serif
-fontsCode = SourceCodePro,C onsolas, Monaco, monospace
+fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 
 /**
  * Animations
  **/
-@-webkit-keyframes slide-modal-content
-	0%
-		opacity 0
-		-webkit-transform translate3d(0, -100px, 0)
-	100%
-		opacity 1
-		-webkit-transform translate3d(0, 0, 0)
-
-@keyframes slide-modal-content
-	0%
-		opacity 0
-		-webkit-transform translate3d(0, -100px, 0)
-		transform translate3d(0, -100px, 0)
-	100%
-		opacity 1
-		-webkit-transform translate3d(0, 0, 0)
-		transform translate3d(0, 0, 0)
-
-@-webkit-keyframes slide-portfolio-thumbnails
-	0%
-		opacity 0
-		-webkit-transform scale(.5, .5)
-	100%
-		opacity 1
-		-webkit-transform scale(1, 1)
-
-@keyframes slide-portfolio-thumbnails
-	0%
-		opacity 0
-		-webkit-transform scale(.5, .5)
-		transform scale(.5, .5)
-	100%
-		opacity 1
-		-webkit-transform scale(1, 1)
-		transform scale(1, 1)
+@require 'animations.styl'
 
 /**
  * Includes
@@ -550,18 +514,6 @@ fontsCode = SourceCodePro,C onsolas, Monaco, monospace
 		border-radius 4px
 		padding 40px 0
 
-		/*img
-			opacity 0
-			transform(scale(.5, .5))
-			-webkit-animation-name slide-portfolio-thumbnails
-			-webkit-animation-duration 1s
-			-webkit-animation-delay .15s
-			-webkit-animation-fill-mode forwards
-			animation-name slide-portfolio-thumbnails
-			animation-duration 1s
-			animation-delay .15s
-			animation-fill-mode forwards*/
-
 	&__title
 		margin .6em 0 0
 
@@ -892,14 +844,10 @@ fontsCode = SourceCodePro,C onsolas, Monaco, monospace
 			opacity 1
 
 		.dialog__close
-			-webkit-animation slide-modal-content .4s both
-			-webkit-animation-delay .15s
 			animation slide-modal-content .4s both
 			animation-delay .15s
 
 		.dialog__body
-			-webkit-animation slide-modal-content .5s both
-			-webkit-animation-delay .25s
 			animation slide-modal-content .5s both
 			animation-delay .25s
 

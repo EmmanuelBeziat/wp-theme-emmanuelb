@@ -3,8 +3,9 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
+	imagemin = require('gulp-imagemin'),
 	sourcemaps = require('gulp-sourcemaps'),
-	imagemin = require('gulp-imagemin');
+	autoprefixer = require('gulp-autoprefixer');
 
 /**
  * Sauvegarde et compresse les fichiers stylus dans un unique fichier style.css
@@ -16,6 +17,10 @@ gulp.task('stylus', function() {
 		.pipe(sourcemaps.init())
 			.pipe(stylus({
 				compress: true
+			}))
+			.pipe(autoprefixer({
+				browsers: ['last 3 versions'],
+				cascade: false
 			}))
 		.pipe(sourcemaps.write('../maps'))
 		.pipe(gulp.dest(''));
