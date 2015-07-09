@@ -449,12 +449,12 @@ add_action( 'pre_ping', 'mes_pings' );
 function twittercards() {
 	if (is_single()) :
 		global $wp_query, $post; ?>
-		<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@emmanuelbeziat">
 		<meta name="twitter:title" content="<?php echo get_the_title(); ?> :: Emmanuel B ">
 		<meta name="twitter:url" content="<?php echo get_permalink(); ?>">
-		<meta name="twitter:image:src" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID)) : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
-		<meta name="twitter:description" content="<?php // echo explode('<!--more-->', $post->post_content)[0]; ?>">
+		<meta name="twitter:image:src" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
+		<meta name="twitter:description" content="<?php echo htmlspecialchars(strip_tags(explode('<!--more-->', $post->post_content)[0])) ?>">
 	<?php
 	endif;
 }

@@ -114,7 +114,7 @@ get_header(); ?>
 				<div class="qrcode"></div>
 
 				<h3 class="middle-title">Un petit mail</h3>
-				<form action="<?php echo get_template_directory_uri(); ?>/contact-form.php" method="post" id="contact-form" class="contact-form" autocomplete="off">
+				<form action="<?php echo get_template_directory_uri(); ?>/contact-form.php" method="post" id="contact-form" class="contact-form modern-form" autocomplete="off">
 					<input type="hidden" name="tokenID" value="<?php echo (isset($_SESSION['tokenID'])) ? $_SESSION['tokenID'] : '' ?>">
 
 					<div class="form-group">

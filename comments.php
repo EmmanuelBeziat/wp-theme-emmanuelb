@@ -60,7 +60,7 @@ if ( post_password_required() ) {
 
 	<h2 class="comments__title">Laisser un commentaire</h2>
 
-	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform" class="comment-form" autocomplete="off">
+	<form action="<?php echo get_option('siteurl'); ?>/wp-comments-post.php" method="post" id="commentform" class="comment-form modern-form" autocomplete="off">
 
 		<?php if (is_user_logged_in()): ?>
 
