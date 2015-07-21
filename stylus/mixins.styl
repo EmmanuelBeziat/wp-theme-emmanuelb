@@ -1,0 +1,50 @@
+// Ombres portées
+shadow-maker(iterations, fondu, couleur)
+	$shadows = '0 0 0 transparent'
+	for i in 1..iterations
+		$shadows += ', %spx %spx' % (i i) fondu couleur
+
+long-shadow(iterations, fondu, couleur)
+	text-shadow unquote(shadow-maker(iterations, fondu, couleur))
+
+// Blocs de couleurs (notes, alertes, dialogues)
+contextes-couleurs(couleurFond, couleurBordure, couleurTexte, icone)
+	background-color couleurFond
+	border-color couleurBordure
+	color couleurTexte
+
+	hr
+		boder-top-color darken(couleurBordure, 5%)
+
+	a
+		color darken(couleurTexte, 10%)
+
+// Notes
+note-maker(couleur, icone)
+	color couleur
+	background lighten(couleur, 90%)
+	border 1px solid lighten(couleur, 50%)
+
+	&:before
+		content icone
+
+	em
+	strong
+		color darken(couleur, 15%)
+
+// Clearfix
+clearfix()
+	&:before
+	&:after
+		content " "
+		display table
+
+	&:after
+		clear both
+
+// Positionnement
+position-angles(valeurTop, valeurRight, valeurBottom, valeurLeft)
+	top valeurTop
+	right valeurRight
+	bottom valeurBottom
+	left valeurLeft

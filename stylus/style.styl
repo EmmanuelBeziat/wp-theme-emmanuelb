@@ -14,106 +14,14 @@ License URI: LICENSE
 */
 
 /**
- * Couleurs
- **/
-colorBackground = #26292c
-colorText = #f8f8f2
-colorTitle = #00bbe4
-colorLink = #ed5936
-colorEmphasis = #ffaa26
-colorStrong = #c34f8f
-colorCode = #a0c546
-
-/**
  * Mixins
  **/
-
-// Ombres portées
-shadow-maker(iterations, fondu, couleur)
-	$shadows = '0 0 0 transparent'
-	for i in 1..iterations
-		$shadows += ', %spx %spx' % (i i) fondu couleur
-
-long-shadow(iterations, fondu, couleur)
-	text-shadow unquote(shadow-maker(iterations, fondu, couleur))
-
-// Transformations CSS
-transform(valeur)
-	transform valeur
-
-// Blocs de couleurs (notes, alertes, dialogues)
-contextes-couleurs(couleurFond, couleurBordure, couleurTexte, icone)
-	background-color couleurFond
-	border-color couleurBordure
-	color couleurTexte
-
-	hr
-		boder-top-color darken(couleurBordure, 5%)
-
-	a
-		color darken(couleurTexte, 10%)
-
-// Notes
-note-maker(couleur, icone)
-	color couleur
-	background lighten(couleur, 90%)
-	border 1px solid lighten(couleur, 50%)
-
-	&:before
-		content icone
-
-	em
-	strong
-		color darken(couleur, 15%)
-
-// Clearfix
-clearfix()
-	&:before
-	&:after
-		content " "
-		display table
-
-	&:after
-		clear both
-
-// Positionnement
-position-angles(valeurTop, valeurRight, valeurBottom, valeurLeft)
-	top valeurTop
-	right valeurRight
-	bottom valeurBottom
-	left valeurLeft
-
-/**
- * Tailles
- **/
-size-widthHeader = 20em
-size-widthContent = 43.75em
-
-/**
- * Helpers
- **/
+@require 'mixins.styl'
 @require 'helpers.styl'
-
-/**
- * Font-face
- **/
 @require 'fonts.styl'
-
-/**
- * Fonts family
- **/
-fontsBase = "Segoe UI", "Helvetica Neue", Roboto, Arial, sans-serif
-fontsTitle = "Yanone Kaffeesatz", "Bebas Neue", Arial, sans-serif
-fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
-
-/**
- * Animations
- **/
+@require 'variables.styl'
 @require 'animations.styl'
 
-/**
- * Includes
- **/
 @require 'reset.styl'
 @require 'prism.styl'
 @require 'genericons.styl'
@@ -273,7 +181,7 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 			font 2em/1em fontsTitle
 			padding 20px 0 10px
 			position relative
-			transform(translateZ(0))
+			transform translateZ(0)
 			outline 0
 
 			&:before
@@ -286,11 +194,11 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 
 			&:before
 				content "< "
-				transform(translateX(20px))
+				transform translateX(20px)
 
 			&:after
 				content " />"
-				transform(translateX(-20px))
+				transform translateX(-20px)
 
 		& a:hover:before
 		& a:focus:before
@@ -299,7 +207,7 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 		& a:focus:after
 		&--current a:after
 			opacity 1
-			transform(translateX(0px))
+			transform translateX(0px)
 
 		&--current a:before
 		&--current a:after
@@ -370,18 +278,18 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 
 		&:after
 			background colorCode
-			transform(scaleX(0))
+			transform scaleX(0)
 			transition transform .3s
 
 		&--label .form-label
-			transform(translateY(0) scale(.75))
+			transform translateY(0) scale(.75)
 
 		&--focus
 			.form-label
 				color colorCode
 
 			&:after
-				transform(scaleX(1))
+				transform scaleX(1)
 
 	&-label
 		position relative
@@ -389,7 +297,7 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 		display block
 		color darken(colorText, 10%)
 		line-height 1
-		transform(translateY(1.5em))
+		transform translateY(1.5em)
 		transition transform .3s, color .3s
 		transform-origin 0 50%
 
@@ -438,12 +346,12 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 		&:hover
 			.portfolio-caption
 				opacity 1
-				transform(translateY(0))
+				transform translateY(0)
 				transition opacity .4s ease-in, transform .2s ease-in
 
 				&__title
 				.portfolio-categories
-					transform(translateY(0))
+					transform translateY(0)
 					transition all .6s ease
 
 	&__image
@@ -462,13 +370,13 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 		padding 10px
 		text-shadow 0 1px 4px rgba(0,0,0,0.5)
 		transition all .4s ease-out, opacity .6s ease-out
-		transform(translateY(50%))
+		transform translateY(50%)
 
 		&__title
 			color colorText
 			font-size 2.25em
 			margin 0 0 10px
-			transform(translateY(100%))
+			transform translateY(100%)
 			transition tranform 2s ease
 
 	&-red
@@ -493,7 +401,7 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 	&-categories
 		position absolute
 		position-angles(auto, 10px, 10px, auto)
-		transform(translateY(100%))
+		transform translateY(100%)
 		transition tranform 2s ease
 
 		&__item
@@ -532,7 +440,7 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 
 			.gi
 				vertical-align baseline
-				transform(translateY(4px))
+				transform translateY(4px)
 				width auto
 				height auto
 				color colorCode
@@ -1134,7 +1042,6 @@ fontsCode = SourceCodePro, Consolas, Monaco, 'Andale Mono', monospace
 .wmd-button
 	background-color lightback
 	border-radius 2px
-
 
 /**
  * Accueil
