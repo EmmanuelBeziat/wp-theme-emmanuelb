@@ -9,7 +9,7 @@
 ?>
 
 <?php if ( has_nav_menu( 'top' ) ) : ?>
-<nav role="navigation" class="navigation site-navigation">
+<nav class="navigation site-navigation">
 	<?php wp_nav_menu(array(
 		'theme_location' => 'top',
 		'container' => false,

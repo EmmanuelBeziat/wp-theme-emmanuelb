@@ -119,7 +119,7 @@ get_header(); ?>
 
 					<div class="form-group">
 						<label class="form-label" for="name">Nom</label>
-						<input id="name" class="form-input" name="name" type="text" value="<?php echo (isset($_SESSION['mailChamps']['name'])) ? $_SESSION['mailChamps']['name'] : '' ?>" aria-required="true" required>
+						<input id="name" class="form-input" name="name" type="text" value="<?php echo (isset($_SESSION['mailChamps']['name'])) ? $_SESSION['mailChamps']['name'] : '' ?>" required>
 					</div>
 
 					<div class="form-group sr-only">
@@ -129,12 +129,12 @@ get_header(); ?>
 
 					<div class="form-group">
 						<label class="form-label" for="email">Adresse e-mail</label>
-						<input id="email" class="form-input" name="email" type="email" value="<?php echo (isset($_SESSION['mailChamps']['email'])) ? $_SESSION['mailChamps']['email'] : '' ?>" aria-required="true" required>
+						<input id="email" class="form-input" name="email" type="email" value="<?php echo (isset($_SESSION['mailChamps']['email'])) ? $_SESSION['mailChamps']['email'] : '' ?>" required>
 					</div>
 
 					<div class="form-group">
 						<label class="form-label" for="message">Message</label>
-						<textarea id="message" class="form-input" name="message" aria-required="true" required><?php echo (isset($_SESSION['mailChamps']['message'])) ? $_SESSION['mailChamps']['message'] : '' ?></textarea>
+						<textarea id="message" class="form-input" name="message" required><?php echo (isset($_SESSION['mailChamps']['message'])) ? $_SESSION['mailChamps']['message'] : '' ?></textarea>
 					</div>
 
 					<div class="form-submit">

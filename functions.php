@@ -20,15 +20,15 @@ function theme_setup() {
 	************************************/
 	add_theme_support('automatic-feed-links');
 	add_theme_support('post-thumbnails');
-	add_theme_support('html5', 'title-tag', array('search-form', 'comment-form', 'comment-list'));
+	add_theme_support('html5', 'title-tag', ['search-form', 'comment-form', 'comment-list']);
 
 	/* Menus
 	************************************/
-	register_nav_menus(array(
+	register_nav_menus([
 		'top' => 'Haut de page',
 		'footer' => 'Pied de page',
 		'sidebar' => 'Barre latérale',
-	));
+	]);
 
 	/** Sidebars
 	************************************/
@@ -44,9 +44,8 @@ add_action('after_setup_theme', 'theme_setup');
 function create_post_type() {
 
 	// Compétences
-	register_post_type('skills',
-		array(
-			'labels' => array(
+	register_post_type('skills', [
+			'labels' => [
 				'name' => 'Compétences',
 				'singular_name' => 'Compétence',
 				'all_items' => 'Toutes les compétences',
@@ -54,20 +53,19 @@ function create_post_type() {
 				'edit_item' => 'Modifier la compétence',
 				'view_item' => 'Voir la compétence',
 				'search_items' => 'Rechercher une compétence',
-			),
-			'taxonomies' => array('skills_category'),
-			'supports' => array('title', 'editor' => false,	'revisions' => false, 'custom-fields'),
+			],
+			'taxonomies' => ['skills_category'],
+			'supports' => ['title', 'editor' => false,	'revisions' => false, 'custom-fields'],
 			'public' => true,
 			'description' => 'Permet d\'ajouter les compétences à mettre en avant.',
 			'exclude_from_search' => true,
 			'menu_icon' => 'dashicons-star-filled',
-		)
+		]
 	);
 
 	// Portfolio, projets, références
-	register_post_type('portfolio',
-		array(
-			'labels' => array(
+	register_post_type('portfolio', [
+			'labels' => [
 				'name' => 'Portfolio',
 				'singular_name' => 'Portfolio',
 				'all_items' => 'Toutes les références',
@@ -75,82 +73,67 @@ function create_post_type() {
 				'edit_item' => 'Modifier la référence',
 				'view_item' => 'Voir la référence',
 				'search_items' => 'Rechercher une référence',
-			),
-			'taxonomies' => array('portfolio_category', 'portfolio_tag'),
-			'supports' => array('title', 'editor', 'custom_fields', 'thumbnail', 'custom-fields'),
+			],
+			'taxonomies' => ['portfolio_category', 'portfolio_tag'],
+			'supports' => ['title', 'editor', 'custom_fields', 'thumbnail', 'custom-fields'],
 			'public' => true,
 			'description' => 'Permet d\'ajouter les références pour le portfolio. Chaque référence est reliée à une page spécifique détaillant le projet.',
 			'exclude_from_search' => true,
 			'menu_icon' => 'dashicons-format-gallery',
-		)
+		]
 	);
 
 	// Catégories des références
 	register_taxonomy(
-		'portfolio_category', 'portfolio',
-		array(
-			'labels' => array(
+		'portfolio_category', 'portfolio', [
+			'labels' => [
 				'name' => 'Catégories',
 				'singular_name' => 'Catégorie',
 				'search_items' => 'Rechercher une catégorie',
 				'parent_item' => 'Catégorie parente',
 				'edit_item' => 'Modifier la catégorie',
 				'update_item' => 'Mettre à jour la catégorie',
-			),
+			],
 			'hierarchical' => true
-		)
+		]
 	);
 
-	// Clients des références
-	/*register_taxonomy(
-		'portfolio_clients', 'portfolio',
-		array(
-			'labels' => array(
-				'name' => 'Clients',
-				'singular_name' => 'Client',
-				'search_items' => 'Rechercher un client',
-				'edit_item' => 'Modifier le client',
-				'update_item' => 'Mettre à jour le client',
-			),
-			'hierarchical' => false
-		)
-	);*/
-
-	// Tags des références
-	/*register_taxonomy(
-		'portfolio_tag', 'portfolio',
-		array(
-			'labels' => array(
-				'name' => 'Mots-clés',
-				'singular_name' => 'Mots-clés',
-				'search_items' => 'Rechercher un mot-clé',
-				'edit_item' => 'Modifier le mot-clé',
-				'update_item' => 'Mettre à jour le mot-clé',
-			),
-			'hierarchical' => false,
-			'show_ui' => true,
-			'update_count_callback' => '_update_post_term_count',
-			'query_var' => true,
-			'rewrite' => array( 'slug' => 'tag' )
-		)
-	);*/
-
+	// Catégories des compétences
 	register_taxonomy(
-		'skills_category', 'skills',
-		array(
-			'labels' => array(
+		'skills_category', 'skills', [
+			'labels' => [
 				'name' => 'Domaines de compétences',
 				'singular_name' => 'Domaine de compétence',
 				'search_items' => 'Rechercher un domaine de compétence',
 				'edit_item' => 'Modifier le domaine de compétence',
 				'update_item' => 'Mettre à jour le domaine de compétence',
-			),
+			],
 			'hierarchical' => true,
-		)
+		]
 	);
 }
 
 add_action('init', 'create_post_type');
+
+/* Special Fields
+************************************/
+function add_metaboxes() {
+	add_meta_box('portfolio_client', 'Portfolio Client', 'portfolio_client', 'portfolio', 'normal', 'default');
+}
+add_action( 'add_meta_boxes', 'add_metaboxes' );
+
+function smashing_post_meta_boxes_setup() {
+  add_action( 'add_meta_boxes', 'smashing_add_post_meta_boxes' );
+  add_action( 'save_post', 'smashing_save_post_class_meta', 10, 2 );
+}
+
+function portfolio_client() {
+	global $post; ?>
+
+	<input type="hidden" name="portfolio_noncename" id="portfolio_noncename" value="<?php wp_create_nonce( plugin_basename(__FILE__) ) ?>" />
+	<input type="text" name="_client" value="<?php echo get_post_meta($post->ID, '_client', true) ?>" class="widefat" />
+<?php
+}
 
 /* Shortcodes
 ************************************/
@@ -348,7 +331,7 @@ function share_links($id) {
 	$titreArticle = strtolower(str_replace(' ', '%20', get_the_title($id))); ?>
 	<div class="post-share">
 		<ul class="list-unstyled">
-			<li><a class="post-share__link" title="Partager sur Twitter" href="https://twitter.com/share?url=<?php echo get_permalink($id); ?>&amp;text=<?php echo $titreArticle; ?>&amp;via=RhooManu" rel="nofollow" data-link="share"><i class="gi gi-twitter"></i>Partager sur Twitter</a></li>
+			<li><a class="post-share__link" title="Partager sur Twitter" href="https://twitter.com/share?url=<?php echo get_permalink($id); ?>&amp;text=<?php echo $titreArticle; ?>&amp;via=EmmanuelBeziat" rel="nofollow" data-link="share"><i class="gi gi-twitter"></i>Partager sur Twitter</a></li>
 			<li><a class="post-share__link" title="Partager sur Faceook" href="https://www.facebook.com/sharer.php?u=<?php echo get_permalink($id); ?>&amp;t=<?php echo $titreArticle; ?>" rel="nofollow" data-link="share"><i class="gi gi-facebook-alt"></i>Partager sur Facebook</a></li>
 			<li><a class="post-share__link" title="Partager sur Google+" href="https://plus.google.com/share?url=<?php echo get_permalink($id); ?>&amp;hl=fr" rel="nofollow" data-link="share"><i class="gi gi-googleplus-alt"></i>Partager sur Google+</a></li>
 			<li><a class="post-share__link" title="Partager sur Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_permalink($id); ?>&amp;title=<?php echo $titreArticle; ?>" rel="nofollow" data-link="share"><i class="gi gi-linkedin"></i>Partager sur Linkedin</a></li>
@@ -367,7 +350,7 @@ function custom_paging_nav($position) {
 		return;
 	}
 	?>
-	<nav class="navigation paging-navigation <?php echo $position; ?>" role="navigation">
+	<nav class="navigation paging-navigation <?php echo $position; ?>">
 		<div class="pagination loop-pagination">
 			<div class="nav-previous"><?php next_posts_link( 'Articles précédents' ); ?></div>
 			<div class="nav-next"><?php previous_posts_link( 'Articles suivants', '' ); ?></div>
@@ -390,7 +373,7 @@ function custom_post_nav($position) {
 	}
 
 	?>
-	<nav class="navigation post-navigation <?php echo $position; ?>" role="navigation">
+	<nav class="navigation post-navigation <?php echo $position; ?>">
 		<div class="nav-links">
 			<div class="nav-previous"><?php previous_post_link('%link'); ?></div>
 			<div class="nav-next"><?php next_post_link('%link'); ?></div>
@@ -412,7 +395,7 @@ function get_date_post() { ?>
 function menu_classes_item($classes) {
 	if (!is_array($classes)) return;
 
-	$current_indicators = array('current-menu-item', 'current-menu-parent', 'current_page_item', 'current_page_parent');
+	$current_indicators = ['current-menu-item', 'current-menu-parent', 'current_page_item', 'current_page_parent'];
 	$newClasses = array();
 
 	array_push($newClasses, 'navigation-main__item');
@@ -497,10 +480,9 @@ function eb_comments($comment, $args, $depth) {
 
 			<footer class="comment__footer">
 				<div class="reply">
-					<?php comment_reply_link( array_merge( $args, array( 'reply_text' => 'Répondre', 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ); ?>
+					<?php comment_reply_link( array_merge( $args, ['reply_text' => 'Répondre', 'depth' => $depth, 'max_depth' => $args['max_depth']] ) ); ?>
 				</div>
 			</footer>
 		</div>
-	</li>
 <?php
 }

@@ -12,7 +12,7 @@
 
 			</div><!-- #main -->
 
-			<footer id="footer" class="site-footer hidden-xl" role="contentinfo">
+			<footer id="footer" class="site-footer hidden-xl">
 				<div class="site__info">
 					<div class="hidden-xl">© <?php echo date('Y')?> Emmanuel Béziat</div>
 				</div><!-- .site-info -->

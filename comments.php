@@ -39,7 +39,6 @@ if ( post_password_required() ) {
 				'short_ping' => true,
 				'avatar_size'=> 34,
 				'callback' => 'eb_comments'
-
 			) );
 		?>
 	</ol><!-- .comment-list -->
@@ -75,12 +74,12 @@ if ( post_password_required() ) {
 
 			<div class="form-group">
 				<label class="form-label" for="author">Nom <i class="gi gi-star"></i></label>
-				<input id="author" class="form-input" name="author" type="text" value="<?php echo esc_attr($comment_author)?>" aria-required="true" required>
+				<input id="author" class="form-input" name="author" type="text" value="<?php echo esc_attr($comment_author)?>" required>
 			</div>
 
 			<div class="form-group">
 				<label class="form-label" for="email">Adresse e-mail <i class="gi gi-star"></i></label>
-				<input id="email" class="form-input" name="email" type="email" value="<?php echo esc_attr($comment_author_email)?>" aria-required="true" required>
+				<input id="email" class="form-input" name="email" type="email" value="<?php echo esc_attr($comment_author_email)?>" required>
 			</div>
 
 			<div class="form-group">
@@ -92,7 +91,7 @@ if ( post_password_required() ) {
 
 		<div class="form-group" id="respond">
 			<label class="form-label" for="comment">Commentaire <i class="gi gi-star"></i></label>
-			<textarea id="comment" class="form-input" name="comment" aria-required="true" required></textarea>
+			<textarea id="comment" class="form-input" name="comment" required></textarea>
 		</div>
 
 		<div class="form-submit">
