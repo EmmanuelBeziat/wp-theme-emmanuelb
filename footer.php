@@ -19,6 +19,15 @@
 			</footer><!-- #footer -->
 		</div>
 
+		<noscript>
+			<div class="noscript">
+				<div class="container">
+					<h3 class="noscript__header">Javascript est désactivé sur votre navigateur !</h3>
+					Il semble que les scripts soient désactivés sur votre navigateur, vous risquez de ne pas pouvoir consulter correctement le site.
+				</div>
+			</div>
+		</noscript>
+
 		<script src="<?php echo get_template_directory_uri(); ?>/js/main.min.js"></script>
 		<script async src="http://cdn.infographizm.com/javascript/twitter/widgets.js"></script>
 		<?php //wp_footer(); ?>
