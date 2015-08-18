@@ -9,7 +9,7 @@
  * @since Emmanuel B 2.5
  */
 ?><!doctype html>
-<html lang="fr-FR" dir="ltr">
+<html lang="fr-FR" dir="ltr" prefix="og: http://ogp.me/ns#">
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width">
@@ -22,30 +22,34 @@
 			<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 		<![endif]-->
 
-		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon.ico">
-		<link rel="apple-touch-icon-precomposed" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-precomposed.png">
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-144x144.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-72x72.png">
 		<link rel="apple-touch-icon" sizes="76x76" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-144x144.png">
 		<link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-152x152.png">
-		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="apple-touch-icon" sizes="180x180" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-180x180.png">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-194x194.png" sizes="194x194">
 		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-160x160.png" sizes="160x160">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="<?php echo get_template_directory_uri(); ?>/images/favicons/manifest.json">
+		<link rel="shortcut icon" href="<?php echo get_template_directory_uri(); ?>/images/favicons/favicon.ico">
 		<link rel="author" href="humans.txt">
 
 		<meta name="description" content="Portfolio en ligne d'un développeur web du sud. Billets de blogs, tutoriels, astuces, diatribes et réflexions sur le métier, le code et plein d'autres choses.">
 		<meta name="format-detection" content="telephone=yes">
 		<meta name="application-name" content="Emmanuel B.">
 		<meta name="msapplication-tooltip" content="Cliquez pour aller sur le site d'Emmanuel Béziat !">
-		<meta name="msapplication-navbutton-color" content="#99cc33">
-		<meta name="msapplication-TileColor" content="#352726">
+		<meta name="msapplication-navbutton-color" content="#ed5936">
+		<meta name="msapplication-TileColor" content="#2e3235">
 		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/favicons/mstile-144x144.png">
 		<meta name="msapplication-starturl" content="./">
+		<meta name="msapplication-TileImage" content="<?php echo get_template_directory_uri(); ?>/images/favicons/mstile-144x144.png">
+		<meta name="msapplication-config" content="<?php echo get_template_directory_uri(); ?>/images/favicons/browserconfig.xml">
 		<meta name="msapplication-task" content="name=Le blog;action-uri=./blog/;icon-uri=/design/wordpress.ico">
 		<meta name="msapplication-task" content="name=Profil Twitter;action-uri=https://twitter.com/emmanuelbeziat;icon-uri=http://twitter.com/favicon.ico">
 		<meta name="msapplication-task" content="name=Profil Google+;action-uri=https://plus.google.com/+Emmanuelbeziat-web;icon-uri=https://ssl.gstatic.com/s2/oz/images/faviconr2.ico">
@@ -54,7 +58,7 @@
 		<meta name="google-site-verification" content="r-jxizeApI9fc9d0Lz8hsK4L_PFTuQdtzQ2AvWM7S-g" />
 
 		<?php twittercards(); ?>
-		<?php // facebookmeta(); ?>
+		<?php facebookmeta(); ?>
 
 		<base href="<?php echo esc_url(home_url('/')); ?>">
 

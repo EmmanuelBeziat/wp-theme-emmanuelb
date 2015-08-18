@@ -446,13 +446,18 @@ function twittercards() {
  * Facebook Meta
  */
 function facebookmeta() {
-	global $wp_query, $post; ?>
+	if (is_single()) :
+			global $wp_query, $post; ?>
 
-		<meta property="og:title" content="<?php echo get_the_title() ; ?> :: Emmanuel B">
+<meta property="og:title" content="<?php echo get_the_title() ; ?>">
+		<meta property="og:site_name" content="Emmanuel B.">
 		<meta property="og:type" content="article">
 		<meta property="og:url" content="<?php echo get_permalink(); ?>">
-		<meta property="og:image" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID)) : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
+		<meta property="og:locale:alternate" content="fr_FR">
+		<meta property="og:description" content="<?php echo htmlspecialchars(strip_tags(explode('<!--more-->', $post->post_content)[0])) ?>">
+		<meta property="og:image" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
 	<?php
+	endif;
 }
 
 /**
