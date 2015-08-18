@@ -434,10 +434,19 @@ function twittercards() {
 		global $wp_query, $post; ?>
 <meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@emmanuelbeziat">
-		<meta name="twitter:title" content="<?php echo get_the_title(); ?> :: Emmanuel B ">
+		<meta name="twitter:title" content="<?php echo get_the_title(); ?> :: Emmanuel B.">
 		<meta name="twitter:url" content="<?php echo get_permalink(); ?>">
 		<meta name="twitter:image:src" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
 		<meta name="twitter:description" content="<?php echo htmlspecialchars(strip_tags(explode('<!--more-->', $post->post_content)[0])) ?>">
+	<?php
+	else :
+		global $wp_query, $post; ?>
+<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:site" content="@emmanuelbeziat">
+		<meta name="twitter:title" content="Emmanuel B.">
+		<meta name="twitter:url" content="<?php echo get_permalink(); ?>">
+		<meta name="twitter:image:src" content="http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png">
+		<meta name="twitter:description" content="Portfolio en ligne d'un développeur web du sud. Billets de blogs, tutoriels, astuces, diatribes et réflexions sur le métier, le code et plein d'autres choses.">
 	<?php
 	endif;
 }
@@ -448,7 +457,6 @@ function twittercards() {
 function facebookmeta() {
 	if (is_single()) :
 			global $wp_query, $post; ?>
-
 <meta property="og:title" content="<?php echo get_the_title() ; ?>">
 		<meta property="og:site_name" content="Emmanuel B.">
 		<meta property="og:type" content="article">
@@ -456,6 +464,16 @@ function facebookmeta() {
 		<meta property="og:locale:alternate" content="fr_FR">
 		<meta property="og:description" content="<?php echo htmlspecialchars(strip_tags(explode('<!--more-->', $post->post_content)[0])) ?>">
 		<meta property="og:image" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
+	<?php
+	else :
+		global $wp_query, $post; ?>
+<meta property="og:title" content="Emmanuel Béziat">
+		<meta property="og:site_name" content="Emmanuel B.">
+		<meta property="og:type" content="article">
+		<meta property="og:url" content="<?php echo get_permalink(); ?>">
+		<meta property="og:locale:alternate" content="fr_FR">
+		<meta property="og:description" content="Portfolio en ligne d'un développeur web du sud. Billets de blogs, tutoriels, astuces, diatribes et réflexions sur le métier, le code et plein d'autres choses.">
+		<meta property="og:image" content="http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png">
 	<?php
 	endif;
 }
