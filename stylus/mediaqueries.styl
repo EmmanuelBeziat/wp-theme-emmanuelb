@@ -1,0 +1,232 @@
+/**
+ * Large desktop
+ **/
+@media screen and (min-width 1080px)
+	/**
+	 * Helpers
+	 **/
+	.hidden-xl
+		display none !important
+
+/**
+ * Small desktop
+ **/
+@media screen and (max-width 1080px)
+	/**
+	 * Helpers
+	 **/
+	.hidden-sm
+		display none !important
+
+	.site
+		&-header
+		&-header__main
+			width auto
+			float none
+			overflow auto
+
+			&:after
+				display none
+
+			&__main
+				margin 0
+
+			&__title
+				float left
+				width auto
+				margin 0
+
+		&-main
+			margin 0
+
+	.navigation-social
+		float right
+		width auto
+		margin 0
+		padding-bottom 1em
+
+		li
+			vertical-align top
+
+	.copyright
+	.portrait
+		display none
+
+	.secondary-menu
+		clear both
+		overflow auto
+		margin 0
+		padding-top 1em
+		padding-top calc(1em - 4px)
+		border-top 4px solid back
+		text-align left
+
+		li
+			display inline-block
+
+	.secondary-menu__link .gi
+		font-size 1em
+		display inline-block
+		margin-right 10px
+
+	.navigation-main
+		width auto
+		margin 0
+		padding 0 1em
+		border-bottom 4px solid title
+
+/**
+ * Tablets
+ **/
+@media screen and (max-width 820px)
+	.site-header__title
+	.navigation-social
+		float none
+
+	.navigation-social
+		margin-top 1em
+
+@media screen and (max-width 795px)
+	/**
+	 * Helpers
+	 **/
+	.hidden-xs
+		display none !important
+
+	.secondary-menu
+		display none
+
+	.navigation-main
+		float none
+		text-align center
+
+	.content-area
+		width auto
+		padding 0 2.5em
+
+	.qrcode
+		width 224px
+		margin 2em auto
+
+	.skill
+		&__list
+			width auto
+			display block
+			margin 0
+
+			& + &
+				margin-left 0
+
+		&__item
+			width auto
+			font-size 1.1em
+			text-align left
+			padding 5px 10px
+			color back
+			text-shadow 0 1px 2px rgba(255,255,255,.6)
+
+			&:after
+			&:before
+				height auto
+				top 0
+				z-index -1
+
+			&:before
+				z-index -2
+
+	.hcard
+		&__name
+			font-size 12.9vw
+
+		&__age
+		&__status
+			font-size 9.5vw
+
+		&__job
+			font-size 10vw
+
+		&__job--alt
+			font-size 12vw
+
+	pre[class*="language-"]
+	.note
+		padding 1em 2.5em
+		max-width none
+		margin .5em -2.5em
+		border-radius 0
+		border-left 0
+		border-right 0
+
+	.note
+		padding-left 3.5em
+
+	.portfolio
+		&__item
+			width auto
+			margin 0
+			float none
+
+			& + &
+				margin-top 10px
+		&__link
+			width auto
+
+		&-list
+			width auto
+			margin 0
+
+/**
+ * Phones
+ **/
+@media screen and (max-width 585px)
+	body
+		min-width 300px
+
+	h1
+		font-size 2.8em
+	h2
+		font-size 2.5em
+	h3
+		font-size 1.4em
+
+	.navigation-social
+		width 15em
+		margin 1em auto 0
+
+		li
+			margin-bottom 4px
+
+	.navigation-main__item a
+		padding 20px 5px 10px 5px
+
+		&:after
+		&:before
+			display none
+
+	.hcard__name
+	.hcard__age
+	.hcard__status
+	.hcard__job
+	.hcard__job--alt
+		font-size 1em
+		margin 0
+
+	.children
+		margin-left 0
+
+	.post-footer__tag-links
+		display none
+
+	.post-content
+		text-align left
+
+	.post-share
+	.post-footer__links
+		float none
+
+	.post-footer__links
+		margin-top 10px
+
+	.portfolio
+		&__link
+			height auto

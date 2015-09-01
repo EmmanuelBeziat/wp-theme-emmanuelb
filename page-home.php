@@ -33,10 +33,10 @@ get_header(); ?>
 				<div id="competences" class="skills">
 					<ul class="skill__list">
 						<li class="skill__item" data-skill="100">HTML / CSS</li>
-						<li class="skill__item" data-skill="50">Javascript / jQuery</li>
+						<li class="skill__item" data-skill="60">Javascript / jQuery</li>
 						<li class="skill__item" data-skill="60">PHP</li>
 						<li class="skill__item" data-skill="70">WordPress</li>
-						<li class="skill__item" data-skill="50">C# .NET</li>
+						<li class="skill__item" data-skill="40">C# .NET</li>
 						<li class="skill__item" data-skill="60">SQL</li>
 					</ul>
 					<ul class="skill__list">
@@ -46,7 +46,7 @@ get_header(); ?>
 						<li class="skill__item" data-skill="40">Audio-visuel</li>
 					</ul>
 					<ul class="skill__list">
-						<li class="skill__item" data-skill="70">Windows (XP, Vista, 7, 8)</li>
+						<li class="skill__item" data-skill="70">Windows</li>
 						<li class="skill__item" data-skill="50">Linux (Debian)</li>
 						<li class="skill__item" data-skill="30">Mac OSX</li>
 					</ul>
