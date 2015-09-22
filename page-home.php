@@ -25,7 +25,7 @@ get_header(); ?>
 
 				<h1 class="main-title vcard" id="hcard-Emmanuel-Béziat">
 					<span class="block-type fn hcard__name">Emmanuel B.</span>
-					<span class="block-type"><span class="hcard__age">27 ans</span> <span class="hcard__status">Freelance</span></span>
+					<span class="block-type"><span class="hcard__age">28 ans</span> <span class="hcard__status">Freelance</span></span>
 					<span class="block-type hcard__job">Développeur web</span>
 					<span class="block-type hcard__job--alt">Infographiste</span>
 				</h1>

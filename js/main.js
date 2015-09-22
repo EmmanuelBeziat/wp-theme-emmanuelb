@@ -147,6 +147,15 @@ var emmanuelb = (function($, undefined) {
 		event.preventDefault();
 	};
 
+	var skillsAnimation = function(delay) {
+		var $skill = $('.skill__item'),
+			iSkillValue = $skill.attr('data-skill');
+
+		setTimeout(function() {
+			$skill.addClass('skill__item--animation');
+		}, delay);
+	};
+
 	/**
 	 * Popup des liens de partage (réseaux sociaux)
 	 * @param  {event} event [description]
@@ -167,6 +176,9 @@ var emmanuelb = (function($, undefined) {
 
 		// Menu principal
 		menuCreator();
+
+		// Skills
+		skillsAnimation(600);
 
 		// Comportement des formulaires
 		$('.modern-form').modernForm();
