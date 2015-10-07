@@ -1,0 +1,270 @@
+/**
+ * Posts
+ **/
+.post
+
+	// .post-header
+	&-header
+		margin-bottom 40px
+
+		// .post-header__title
+		&__title
+			margin 1.5em 0 2px
+
+			a
+				color colorTitle
+
+				&:hover
+					color colorEmphasis
+
+	// .post-meta
+	&-meta
+		// .post-meta--header
+		&--header
+			color colorEmphasis
+			font-size .85em
+			font-weight 200
+
+		// .post-meta--footer
+		&--footer
+			margin-top .5em
+
+	// .post-share
+	&-share
+		float left
+
+		li
+			display inline-block
+			vertical-align bottom
+
+		a
+			display block
+			font-size 0
+			background lighten(colorBackground, 4%)
+			color colorText
+			overflow hidden
+			text-align center
+			border-radius 2px
+			height 32px
+
+		.gi
+			font-size 22px
+			line-height 32px
+			longShadow(20, 0, darken(colorBackground, 20%))
+			square(32px)
+			transition all .6s ease
+
+		// .post-share__link
+		&__link
+			&:hover
+			&:focus
+				.gi
+					transition all .1s ease
+
+				.gi-googleplus-alt
+					background #df664f
+					longShadow(35, 0, darken(#b2523f, 30%))
+
+				.gi-twitter
+					background #48b9eb
+					longShadow(35, 0, darken(#3a94bc, 30%))
+
+				.gi-facebook-alt
+					background #3b5998
+					longShadow(35, 0, darken(#2f477a, 30%))
+
+				.gi-linkedin
+					background #005a87
+					longShadow(35, 0, darken(#00486c, 30%))
+
+	// .post-footer
+	&-footer
+		&__edit-link
+		&__comments-link
+			display inline-block
+
+			a
+				border-radius 2px
+				background colorLink
+				color colorText
+				display block
+				padding 4px 10px
+
+				&:focus
+				&:hover
+					background colorEmphasis
+
+			.gi
+				line-height 1
+				font-family genericons
+				display inline-block
+				font-size 1.5em
+				vertical-align bottom
+				height auto
+				width auto
+
+		// .post-footer__links
+		&__links
+			float right
+
+		// .post-footer__container
+		&__container
+			overflow auto
+			padding 0 0 5px
+
+		// .post-footer__categories, .post-footer__tag-links
+		&__categories
+		&__tag-links
+			font-size .8em
+
+			a
+				color colorCode
+
+				&:hover
+				&:focus
+					color colorEmphasis
+
+	// .post-content
+	&-content
+		text-align justify
+
+		h3 + p
+			margin-top 0
+
+		code
+			font-size .9em
+
+		ul
+		ol
+			margin 0 0 20px 0
+
+		img
+			max-width 100%
+
+
+.tags-links
+	// .tag-links__list
+	&__list
+		display inline-block
+
+	// .tag-links__item
+	&__item
+		display inline-block
+		margin-left 3px
+
+.post-footer__tag-links
+	.gi-tag
+		margin-right 5px
+		font-size 1.6em
+		vertical-align top
+
+/**
+ * Post navigation
+ **/
+.back-top
+	border-radius 2px
+	background colorCode
+	float right
+	margin-top 4px
+	color colorBackground
+	display block
+	padding 4px 10px
+	margin-left 10px
+
+	&:hover
+	&:focus
+		background colorEmphasis
+		color colorText
+
+	.gi
+		font-size 1.25em
+		width auto
+		height auto
+
+.more
+	// .more-link
+	&-link
+		display inline-block
+		margin .5em 0
+		color colorTitle
+
+		&:hover
+		&:focus
+			color colorEmphasis
+
+		&:before
+		&:after
+			content ""
+			display block
+			clear right
+
+.more-link .gi
+.nav-next .gi
+	line-height 1.4em
+	position relative
+	font-size 1.2em
+	right 0
+	transition right .2s linear
+
+.nav-previous .gi
+	line-height 1.4em
+	position relative
+	font-size 1.2em
+	left 0
+	transition left .2s linear
+
+.more-link:hover
+.more-link:focus
+.nav-next:hover
+.nav-next:focus
+	.gi
+		right -5px
+
+.nav-previous:hover
+.nav-previous:focus
+	.gi
+		left -5px
+
+.paging-navigation
+.post-navigation
+	overflow hidden
+	margin .5em 0
+
+.navigation--top
+	margin-bottom 1.5em
+
+.navigation--bottom
+	margin-top 1.5em
+
+.nav-previous
+	float left
+	width auto
+
+	a:before
+		content '\f430'
+		font 400 1.429em/1em Genericons
+		margin-right 2px
+		vertical-align bottom
+		position relative
+		left -1px
+		transition left .2s ease-in-out
+
+	a:hover:before
+		left -5px
+
+.nav-next
+	float right
+	width auto
+	text-align right
+
+	a:after
+		content '\f429'
+		font 400 1.429em/1em Genericons
+		margin-left 2px
+		vertical-align bottom
+		position relative
+		right -1px
+		transition right .2s ease-in-out
+
+	a:hover:after
+		right -5px

@@ -1,0 +1,218 @@
+/**
+ * Header
+ **/
+.site-header
+	width sizeWidthHeader
+	float left
+
+	&:after
+		content ""
+		position fixed
+		background lighten(colorBackground, 4%)
+		width sizeWidthHeader
+		box-shadow 0 0 5px darken(colorBackground, 10%)
+		left 0
+		bottom 0
+		top 0
+		z-index 1
+
+	// .site-header__main
+	&__main
+		background lighten(colorBackground, 4%)
+		padding 1em 2.5em
+		color colorText
+		text-align center
+		position relative
+		z-index 2
+
+	&__content a:hover
+	&__content a:focus
+		color colorEmphasis
+
+	// .site-header__title
+	&__title
+		margin-top 0
+
+		a
+			color colorCode
+
+		a:hover
+		a:focus
+			color colorLink
+
+/**
+ * Social
+ */
+.navigation-social
+	margin 2em 0
+
+	li
+		display inline-block
+
+	// ..navigation-social__link
+	&__link
+		font-size 0
+		font-weight 400
+		display block
+		width 56px
+		height 56px
+		background colorBackground
+		border-radius 5%
+		color colorText
+		overflow hidden
+		text-align center
+		-webkit-font-smoothing antialiased
+
+		&:hover
+		&:focus
+			color colorText
+
+			.gi
+				transition all .1s ease
+
+			.gi-pinterest
+				background #dc474d
+				longShadow(35, 0, darken(#b0393e, 30%))
+
+			.gi-googleplus-alt
+				background #df664f
+				longShadow(35, 0, darken(#b2523f, 30%))
+
+			.gi-twitter
+				background #48b9eb
+				longShadow(35, 0, darken(#3a94bc, 30%))
+
+			.gi-facebook-alt
+				background #3b5998
+				longShadow(35, 0, darken(#2f477a, 30%))
+
+			.gi-wordpress
+				background #464646
+				longShadow(35, 0, darken(#383838, 30%))
+
+			.gi-linkedin
+				background #005a87
+				longShadow(35, 0, darken(#00486c, 30%))
+
+			.gi-codepen
+				background #252527
+				longShadow(35, 0, darken(#1e1e1f, 30%))
+
+			.gi-github
+				background #4183c4
+				longShadow(35, 0, darken(#34699d, 30%))
+
+	.gi
+		font-size 40px
+		line-height 1.5em
+		width 56px
+		height 56px
+		transition all .5s ease
+		longShadow(35, 0, darken(colorBackground, 20%))
+
+.secondary-menu
+	margin 4em 0
+
+	// .secondary-menu__link
+	&__link
+		font 1.6em fontsTitle
+
+	.gi
+		display block
+		line-height .5em
+		margin 10px auto
+		text-align center
+		font-size 3em
+		width auto
+		height auto
+
+/**
+ * Menu principal
+ **/
+.navigation-main
+	margin 0 auto 20px
+	padding 0
+	list-style none
+	text-align right
+	width sizeWidthContent
+
+	// .navigation-main__item
+	&__item
+		display inline-block
+
+		a
+			display block
+			font 2em/1em fontsTitle
+			padding 20px 0 10px
+			position relative
+			transform translateZ(0)
+			outline 0
+
+			&:before
+			&:after
+				content ""
+				color colorText
+				opacity 0
+				z-index -1
+				transition all .6s ease
+
+			&:before
+				content "< "
+				transform translateX(20px)
+
+			&:after
+				content " />"
+				transform translateX(-20px)
+
+		& a:hover:before
+		& a:focus:before
+		&--current a:before
+		& a:hover:after
+		& a:focus:after
+		&--current a:after
+			opacity 1
+			transform translateX(0px)
+
+		&--current a:before
+		&--current a:after
+			transition all 0s, color .6s ease
+
+		&--current a:hover:before
+		&--current a:hover:after
+			transition color .2s ease
+
+		&:nth-child(1) a:hover
+		&:nth-child(1) a:focus
+		&--current:nth-child(1) a
+		&--current:nth-child(1) a:hover:before
+		&--current:nth-child(1) a:focus:before
+		&--current:nth-child(1) a:hover:after
+		&--current:nth-child(1) a:focus:after
+			color colorStrong
+
+		&:nth-child(2) a:hover
+		&:nth-child(2) a:focus
+		&--current:nth-child(2) a
+		&--current:nth-child(2) a:hover:before
+		&--current:nth-child(2) a:focus:before
+		&--current:nth-child(2) a:hover:after
+		&--current:nth-child(2) a:focus:after
+			color colorTitle
+
+		&:nth-child(3) a:hover
+		&:nth-child(3) a:focus
+		&--current:nth-child(3) a
+		&--current:nth-child(3) a:hover:before
+		&--current:nth-child(3) a:focus:before
+		&--current:nth-child(3) a:hover:after
+		&--current:nth-child(3) a:focus:after
+			color colorCode
+
+		&:nth-child(4) a:hover
+		&:nth-child(4) a:focus
+		&--current:nth-child(4) a
+		&--current:nth-child(4) a:hover:before
+		&--current:nth-child(4) a:focus:before
+		&--current:nth-child(4) a:hover:after
+		&--current:nth-child(4) a:focus:after
+			color colorEmphasis

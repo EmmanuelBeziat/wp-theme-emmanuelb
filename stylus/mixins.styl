@@ -1,50 +1,146 @@
-// Ombres portées
-shadow-maker(iterations, fondu, couleur)
-	$shadows = '0 0 0 transparent'
-	for i in 1..iterations
-		$shadows += ', %spx %spx' % (i i) fondu couleur
-
-long-shadow(iterations, fondu, couleur)
-	text-shadow unquote(shadow-maker(iterations, fondu, couleur))
-
-// Blocs de couleurs (notes, alertes, dialogues)
-contextes-couleurs(couleurFond, couleurBordure, couleurTexte, icone)
-	background-color couleurFond
-	border-color couleurBordure
-	color couleurTexte
-
-	hr
-		boder-top-color darken(couleurBordure, 5%)
-
-	a
-		color darken(couleurTexte, 10%)
-
-// Notes
-note-maker(couleur, icone)
-	color couleur
-	background lighten(couleur, 90%)
-	border 1px solid lighten(couleur, 50%)
-
-	&:before
-		content icone
-
-	em
-	strong
-		color darken(couleur, 15%)
-
-// Clearfix
+/**
+ * Clear floating elements
+ **/
 clearfix()
 	&:before
 	&:after
-		content " "
+		content ""
 		display table
-
 	&:after
 		clear both
 
-// Positionnement
-position-angles(valeurTop, valeurRight, valeurBottom, valeurLeft)
-	top valeurTop
-	right valeurRight
-	bottom valeurBottom
-	left valeurLeft
+/**
+ * Center block
+ **/
+centerBlock()
+	margin-left auto
+	margin-right auto
+	display block
+
+/**
+ * Basic container
+ **/
+container()
+	margin-left auto
+	margin-right auto
+	max-width sizeWidthContent
+
+/**
+ * List Unstyled
+ **/
+listUnstyled()
+	margin 0
+	padding 0
+	list-style none
+
+/**
+ * Px to Em
+ **/
+pxToEm(size)
+	((size / sizeFontBase) * 1)em
+
+/**
+ * Px to Percent
+ **/
+percentage(value1, value2)
+	(value1 / value2 * 100)%
+
+/**
+ * Size shortcut
+ **/
+size(width, height)
+	height height
+	width width
+
+/**
+ * Equal Size shortcut
+ **/
+square(size)
+	height size
+	width size
+
+/**
+ * Screenreaders only
+ **/
+screenReaders()
+	position absolute
+	width 1px
+	height 1px
+	padding 0
+	margin -1px
+	overflow hidden
+	clip rect(0, 0, 0, 0)
+	border 0
+
+/**
+ * Floats
+ **/
+pull(value)
+	float value
+
+/**
+ * Hide text
+ **/
+textHide()
+	font "0/0" a
+	color transparent
+	text-shadow none
+	background-color transparent
+	border 0
+
+/**
+ * Responsive images
+ **/
+imgResponsive(display = block)
+	display display
+	max-width 100%
+	height auto
+
+/**
+ * Position locking
+ **/
+positionAngles(top, right, bottom, left)
+	top top
+	right right
+	bottom bottom
+	left left
+
+/**
+ * Generate automatic text shadow
+ **/
+shadowMaker(iterations, blur, color)
+	$shadows = '0 0 0 transparent'
+	for i in 1..iterations
+		$shadows += ', %spx %spx' % (i i) blur color
+
+longShadow(iterations, blur, color)
+	text-shadow unquote(shadowMaker(iterations, blur, color))
+
+/**
+ * Create color-based content
+ **/
+colorContext(background, border, text, icon)
+	background-color background
+	border-color border
+	color text
+
+	hr
+		boder-top-color darken(border, 5%)
+
+	a
+		color darken(text, 10%)
+
+/**
+ * Notes
+ **/
+noteMaker(color, icon)
+	color color
+	background lighten(color, 90%)
+	border 1px solid lighten(color, 50%)
+
+	&:before
+		content icon
+
+	em
+	strong
+		color darken(color, 15%)

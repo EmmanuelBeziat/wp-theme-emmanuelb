@@ -1,5 +1,5 @@
 /**
- * Couleurs
+ * Colors
  **/
 colorBackground = #26292c
 colorText = #f8f8f2
@@ -10,10 +10,28 @@ colorStrong = #c34f8f
 colorCode = #a0c546
 
 /**
- * Tailles
+ * Sizes
  **/
-size-widthHeader = 20em
-size-widthContent = 43.75em
+sizeFontBase = 16px
+
+sizeWidthHeader = 20em
+sizeWidthContent = 43.75em
+sizeWidthGutter = pxToEm(20px)
+
+/**
+ * Breakpoints
+ **/
+breakpointLarge = pxToEm(1080)
+breakpointMedium = pxToEm(820)
+breakpointSmall = pxToEm(585)
+
+/**
+ * Media queries
+ **/
+mediaQueryDesktopWideOnly = 'screen and (min-width ' +  breakpointLarge + ')'
+mediaQueryDesktopSmall = 'screen and (max-width ' +  breakpointLarge + ')'
+mediaQueryTablet = 'screen and (max-width ' + breakpointMedium + ')'
+mediaQueryMobile = 'screen and (max-width ' + breakpointSmall + ')'
 
 /**
  * Fonts Families

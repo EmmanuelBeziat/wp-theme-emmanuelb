@@ -1,0 +1,190 @@
+/**
+ * Commentaires
+ **/
+.comments
+	margin-top 3em
+	border-top 1px solid lighten(colorBackground, 20%)
+	padding-top 2em
+
+	// .comments__title
+	&__title
+		margin-bottom .65em
+
+.comment
+	margin 10px auto
+
+	// .comment-body
+	&-body
+		background lighten(colorBackground, 4%)
+		border-radius 3px
+		overflow hidden
+
+	// .comment-list
+	&-list
+		list-style none
+		margin 0
+		padding 0
+
+	// .comment__content
+	&__content
+		overflow hidden
+		text-overflow ellipsis
+		padding 24px
+		text-align justify
+
+		& > :first-child
+			margin-top 0
+
+		& > :last-child
+			margin-bottom 0
+
+		h1
+		h2
+		h3
+		h4
+		h5
+			font-size 1.25em
+			margin 0
+
+			pre
+				background darken(colorBackground, 10%)
+				padding .5em
+				color colorText
+				font-size .875em
+				border-radius 2px
+
+	// .comment__footer
+	&__footer
+		padding 0 .5em .5em
+		text-align right
+
+	// .comment__header
+	&__header
+		padding .5em
+		background lighten(colorBackground, 6%)
+		overflow auto
+		color colorText
+
+			.fn
+			a
+				color colorBackground
+
+			a:hover
+			a:focus
+				color colorEmphasis
+
+	// .comment__meta
+	&__meta
+		float right
+		line-height 1
+		font-size .865em
+		padding-top 6px
+
+		a
+			color darken(colorText, 20%)
+
+			&:hover
+			&:focus
+				color colorText
+
+	// .comment__author
+	&__author
+		font-family fontsTitle
+		font-size 1.25em
+		line-height 1.2
+		float left
+		width auto
+
+		.fn
+		.says
+			font-style normal
+			color colorText
+
+		a
+			color colorLink
+
+			&:focus
+			&:hover
+				color colorEmphasis
+
+	// .comment-reply-link
+	&-reply-link
+		display inline-block
+		background colorLink
+		padding 2px 6px
+		color colorText
+		border-radius 2px
+
+		&:before
+			content '\f467'
+			font-family genericons
+			display inline-block
+			margin-right 2px
+			font-size 1.2em
+			vertical-align bottom
+
+		&:hover
+		&:focus
+			background colorEmphasis
+			color colorText
+
+.form-allowed-tags
+	display none
+
+.fn
+	font-weight 400
+
+.children
+	list-style none
+	padding 0
+	margin-left 2em
+	position relative
+
+	&:before
+		content '\f412'
+		font 1.4em genericons
+		left -1.4em
+		top 5px
+		position absolute
+
+.bypostauthor
+	& > .comment-body
+		.comment__header
+			background colorCode
+
+		.comment__author
+			/*.fn:before
+				content '\f408'
+				font-family genericons
+				color colorEmphasis
+				font-size .8em
+				vertical-align middle*/
+
+			a
+				color colorBackground
+
+			.says
+				color colorBackground
+
+			a:hover
+			a:focus
+				color colorText
+
+		.comment__meta
+			a
+				color colorText
+
+				&:hover
+				&:focus
+					color colorBackground
+
+.comment-respond
+	margin-top 4em
+
+#wmd-button-barcomment
+	width (sizeWidthContent - 15px)
+	margin-left 8.5em
+
+.wmd-button
+	background-color lightback
+	border-radius 2px

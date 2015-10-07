@@ -1,0 +1,189 @@
+/**
+ * Structure
+ **/
+.site-main
+	margin-left sizeWidthHeader
+
+.content-area
+	container()
+
+.site-content
+	margin 4em auto
+
+/**
+ * Contact
+ */
+.qrcode
+	height 224px
+	background url('images/qr-code.png') no-repeat
+
+/**
+ * Dialog Box
+ **/
+.dialog
+	perspective 1300px
+	position fixed
+	top 50%
+	left 50%
+	width 50%
+	max-width 630px
+	min-width 320px
+	height auto
+	z-index 2000
+	visibility hidden
+	backface-visibility hidden
+	transform translateX(-50%) translateY(-50%)
+
+	// .dialog-overlay
+	&-overlay
+		content ""
+		position fixed
+		visibility hidden
+		top 0
+		left 0
+		right 0
+		bottom 0
+		z-index 1000
+		opacity 0
+		background rgba(0,0,0,.7)
+		transition all .3s
+
+	// .dialog__content
+	&__content
+		transform-style preserve-3d
+		transform rotateY(-70deg)
+		transition all .3s
+		opacity 0
+		border-radius 3px
+
+	// .dialog--open
+	&--open
+		visibility visible
+
+		& ~ .dialog-overlay
+			opacity 1
+			visibility visible
+
+		.dialog__content
+			transform rotateY(0deg)
+			opacity 1
+
+		.dialog__close
+			animation slide-modal-content .4s both
+			animation-delay .15s
+
+		.dialog__body
+			animation slide-modal-content .5s both
+			animation-delay .25s
+
+	// .dialog--success
+	&--success
+		.dialog__header
+		.dialog__close
+			background #3c763d
+			color #fff
+
+		.dialog__close:hover
+		.dialog__close:focus
+			background lighten(#3c763d, 20%)
+
+		.dialog__content
+			background #dff0d8
+			color #3c763d
+		& ~ .dialog-overlay
+			background rgba(60,118,61,.6)
+
+	// .dialog--alert
+	&--alert
+		.dialog__header
+		.dialog__close
+			background #a94442
+			color #fff
+
+		.dialog__close:hover
+		.dialog__close:focus
+			background lighten(#a94442, 20%)
+
+		.dialog__content
+			background #f2dede
+			color #a94442
+
+		& ~ .dialog-overlay
+			background rgba(169,68,68,.6)
+
+	// .dialog__header
+	&__header
+		text-align center
+		font-size 2.4em
+		font-weight 300
+		line-height 1.2
+		padding .4em
+
+	// .dialog__body
+	&__body
+		padding 24px
+
+	// .dialog__footer
+	&__footer
+		text-align center
+		padding 0 24px 16px
+
+.middle-title
+	margin-top 3em
+
+/**
+ * Notes
+ **/
+.note
+	position relative
+	z-index 5
+	padding 1em 1em 1em 4em
+	margin 3em 0
+	border-radius 4px
+
+	&:before
+		content ""
+		font-family genericons
+		font-size 2em
+		position absolute
+		left .5em
+
+	a
+		font-weight 700
+		color inherit
+
+		&:hover
+			text-decoration underline
+			color inherit
+
+	// .note--info
+	&--info
+		noteMaker(#31708f, "\f455")
+
+	// .note--question
+	&--question
+		noteMaker(#333, "\f457")
+
+	// .note--alert
+	&--alert
+		noteMaker(#b94a48, "\f414")
+
+	// .note--important
+	&--important
+		noteMaker(#8a6d3b, "\f456")
+
+	// .note--success
+	&--success
+		noteMaker(#3c763d, "\f456")
+
+/**
+ * Recherche
+ */
+.search-box
+	margin-bottom 40px
+
+.button-search
+	position absolute
+	right 0
+	bottom 6px
+	padding 0 8px

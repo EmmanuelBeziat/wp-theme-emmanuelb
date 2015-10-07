@@ -1,0 +1,65 @@
+/**
+ * Forms
+ **/
+.form
+	// .form-group
+	&-group
+		position relative
+		padding 1em 0 .5em
+		box-sizing border-box
+
+		& + &
+		& + .form-submit
+			margin-top 20px
+
+		&:before
+		&:after
+			content ""
+			height 1px
+			position absolute
+			bottom 4px
+			left 0
+			right 0
+			background lighten(colorBackground, 20%)
+
+		&:after
+			background colorCode
+			transform scaleX(0)
+			transition transform .3s
+
+		// .form-group--label .form-label
+		&--label .form-label
+			transform translateY(0) scale(.75)
+
+		// .form-group--focus
+		&--focus
+			.form-label
+				color colorCode
+
+			&:after
+				transform scaleX(1)
+
+	// .form-label
+	&-label
+		position relative
+		margin 0
+		display block
+		color darken(colorText, 10%)
+		line-height 1
+		transform translateY(1.5em)
+		transition transform .3s, color .3s
+		transform-origin 0 50%
+
+	// .form-input
+	&-input
+		position relative
+		display block
+		margin 0
+		width 100%
+		padding .5em 0
+		line-height 1em
+		box-shadow none
+
+	// .form-input
+	&-submit
+		text-align right

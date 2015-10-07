@@ -27,36 +27,35 @@ body
 	background colorBackground
 	color colorText
 	margin 0
-	font 400 16px/1.5em fontsBase
+	font 400 sizeFontBase/1.5em fontsBase
 
 a
 	text-decoration none
 	transition all .1s ease-in-out
 	color colorLink
 
-a img
-	border 0
+	img
+		border 0
 
-a:focus
-	outline thin dotted
+	&:focus
+		outline thin dotted
 
-a:active
-a:hover
-	outline 0
-	color colorEmphasis
+	&:active
+	&:hover
+		outline 0
+		color colorEmphasis
 
-a[target="_blank"]:after
-a[data-link="external"]:after
-	display inline-block
-	width 16px
-	height 16px
-	-webkit-font-smoothing antialiased
-	-moz-osx-font-smoothing grayscale
-	font-size 16px
-	line-height 1
-	font-family Genericons
-	vertical-align top
-	content '\f442'
+	&[target="_blank"]::after
+		display inline-block
+		width 16px
+		height 16px
+		-webkit-font-smoothing antialiased
+		-moz-osx-font-smoothing grayscale
+		font-size 16px
+		line-height 1
+		font-family Genericons
+		vertical-align top
+		content '\f442'
 
 h1
 	color colorCode
@@ -123,72 +122,72 @@ q
 	hyphens none
 	quotes none
 
-blockquote:after
-blockquote:before
-	content ""
-	content none
-
-blockquote cite
-blockquote small
-	color #2b2b2b
-	font-size 1.143em
-	font-weight 400
-	line-height 1.5
-
-blockquote cite
-blockquote em
-blockquote i
-	color #ddd
-
 blockquote
 	position relative
 	font-style italic
 	font-size 1.25em
 	margin 2em 0 2em 60px
 
-blockquote > p:first-child
-	margin-top 0
+	&::after
+	&::before
+		content ""
+		content none
 
-blockquote > p:last-of-type
-	margin-bottom 0
+	&::before
+		content '\f106'
+		font 2.2em Genericons
+		position absolute
+		left -60px
+		top -15px
+		color colorText
 
-blockquote:before
-	content '\f106'
-	font 2.2em Genericons
-	position absolute
-	left -60px
-	top -15px
-	color colorText
+	cite
+	small
+		color #2b2b2b
+		font-size 1.143em
+		font-weight 400
+		line-height 1.5
 
-blockquote footer
-blockquote small
-blockquote .small
-	margin-left 15px
-	display block
-	font-size 80%
-	line-height 1.42857143
-	color colorEmphasis
-	padding-top 10px
+	cite
+	em
+	i
+		color #ddd
 
-blockquote footer:before
-blockquote small:before
-blockquote .small:before
-	content '— '
+	& > p:first-child
+		margin-top 0
+
+	& > p:last-of-type
+		margin-bottom 0
+
+	footer
+	small
+	.small
+		margin-left 15px
+		display block
+		font-size 80%
+		line-height 1.42857143
+		color colorEmphasis
+		padding-top 10px
+
+		&::before
+			content '— '
 
 q
 	color colorEmphasis
 	font-style italic
-	&:before
+
+	&::before
 		content "«\00A0"
-	&:after
+	&::after
 		content '\00A0»'
 
 a q
 	color inherit
 
-small, .small
+small
+.small
 	font-size 85%
-	color #fff
+	color inherit
 	vertical-align baseline
 
 big
