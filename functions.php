@@ -197,7 +197,8 @@ function addQuicktags() {
 		QTags.addButton('eg_xml', 'XML', '<pre><code class="language-markup">', '</code></pre>', '', 'Markup html/xml');
 		QTags.addButton('eg_css', 'CSS', '<pre><code class="language-css">', '</code></pre>', '', 'Code CSS');
 		QTags.addButton('eg_js', 'JS', '<pre><code class="language-javascript">', '</code></pre>', '', 'Code Javascript');
-		QTags.addButton('eg_bash', 'Code', '<pre><code class="language-bash">', '</code></pre>', '', 'Code Bash');
+		QTags.addButton('eg_bash', 'PHP', '<pre><code class="language-php">', '</code></pre>', '', 'Code PHP');
+		QTags.addButton('eg_bash', 'Bash', '<pre><code class="language-bash">', '</code></pre>', '', 'Code Bash');
 		QTags.addButton('eg_youtube', 'YouTube', '[youtube]', '[/youtube]', '', 'Vidéo YouTube');
 		QTags.addButton('eg_note-info', 'Info', '<div class="note note--info">', '</div>', '', 'Bloc informatif');
 		QTags.addButton('eg_note-question', 'Question', '<div class="note note--question">', '</div>', '', 'Bloc de question');
