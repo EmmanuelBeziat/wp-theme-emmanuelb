@@ -436,7 +436,7 @@ function twittercards() {
 		<meta name="twitter:site" content="@emmanuelbeziat">
 		<meta name="twitter:title" content="<?php echo get_the_title(); ?> :: Emmanuel B.">
 		<meta name="twitter:url" content="<?php echo get_permalink(); ?>">
-		<meta name="twitter:image:src" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
+		<meta name="twitter:image" content="<?php echo has_post_thumbnail() ? wp_get_attachment_image_src( get_post_thumbnail_id($post->ID))[0] : 'http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png'; ?>">
 		<meta name="twitter:description" content="<?php echo htmlspecialchars(strip_tags(explode('<!--more-->', $post->post_content)[0])) ?>">
 	<?php
 	else :
@@ -445,7 +445,7 @@ function twittercards() {
 		<meta name="twitter:site" content="@emmanuelbeziat">
 		<meta name="twitter:title" content="Emmanuel B.">
 		<meta name="twitter:url" content="<?php echo get_permalink(); ?>">
-		<meta name="twitter:image:src" content="http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png">
+		<meta name="twitter:image" content="http://www.emmanuelbeziat.com/wp-content/themes/emmanuelb/images/emmanuelb.png">
 		<meta name="twitter:description" content="Portfolio en ligne d'un développeur web du sud. Billets de blogs, tutoriels, astuces, diatribes et réflexions sur le métier, le code et plein d'autres choses.">
 	<?php
 	endif;

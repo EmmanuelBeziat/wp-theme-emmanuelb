@@ -3,6 +3,7 @@ var gulp = require('gulp'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
 	rename = require('gulp-rename'),
+	plumber = require('gulp-plumber'),
 	imagemin = require('gulp-imagemin'),
 	sourcemaps = require('gulp-sourcemaps'),
 	autoprefixer = require('gulp-autoprefixer');
@@ -14,6 +15,7 @@ var gulp = require('gulp'),
  **/
 gulp.task('stylus', function() {
 	return gulp.src('stylus/style.styl')
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 			.pipe(stylus({
 				compress: true
@@ -23,6 +25,7 @@ gulp.task('stylus', function() {
 				cascade: false
 			}))
 		.pipe(sourcemaps.write('maps'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest(''));
 });
 
@@ -32,12 +35,14 @@ gulp.task('stylus', function() {
  **/
 gulp.task('javascript', function() {
 	return gulp.src(['js/vendors/*.js', 'js/plugins/*.js', 'js/main.js'])
+		.pipe(plumber())
 		.pipe(sourcemaps.init())
 			.pipe(uglify({
 				preserveComments: 'some'
 			}))
 			.pipe(concat('main.min.js'))
 		.pipe(sourcemaps.write('../maps'))
+		.pipe(plumber.stop())
 		.pipe(gulp.dest('js/'));
 });
 
