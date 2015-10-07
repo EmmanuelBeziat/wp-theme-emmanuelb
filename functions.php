@@ -149,8 +149,12 @@ function CodeJS($params, $content = null) {
 	return '<pre><code class="language-javascript">'.$content.'</code></pre>';
 }
 
-function CodeBlank($params, $content = null) {
-	return '<pre><code class="language-coffeescript">'.$content.'</code></pre>';
+function CodePHP($params, $content = null) {
+	return '<pre><code class="language-php">'.$content.'</code></pre>';
+}
+
+function CodeBash($params, $content = null) {
+	return '<pre><code class="language-bash">'.$content.'</code></pre>';
 }
 
 function CodeYoutube($params, $content = null) {
@@ -177,7 +181,8 @@ function CodeNoteAlerte($params, $content = null) {
 add_shortcode('xml', 'CodeXML');
 add_shortcode('css', 'CodeCSS');
 add_shortcode('js', 'CodeJS');
-add_shortcode('blank', 'CodeBlank');
+add_shortcode('php', 'CodePHP');
+add_shortcode('bash', 'CodeBash');
 add_shortcode('youtube', 'CodeYoutube');
 add_shortcode('info', 'CodeNoteInfo');
 add_shortcode('question', 'CodeNoteQuestion');
@@ -192,7 +197,7 @@ function addQuicktags() {
 		QTags.addButton('eg_xml', 'XML', '<pre><code class="language-markup">', '</code></pre>', '', 'Markup html/xml');
 		QTags.addButton('eg_css', 'CSS', '<pre><code class="language-css">', '</code></pre>', '', 'Code CSS');
 		QTags.addButton('eg_js', 'JS', '<pre><code class="language-javascript">', '</code></pre>', '', 'Code Javascript');
-		QTags.addButton('eg_blank', 'Code', '<pre><code class="language-coffeescript">', '</code></pre>', '', 'Code Commun');
+		QTags.addButton('eg_bash', 'Code', '<pre><code class="language-bash">', '</code></pre>', '', 'Code Bash');
 		QTags.addButton('eg_youtube', 'YouTube', '[youtube]', '[/youtube]', '', 'Vidéo YouTube');
 		QTags.addButton('eg_note-info', 'Info', '<div class="note note--info">', '</div>', '', 'Bloc informatif');
 		QTags.addButton('eg_note-question', 'Question', '<div class="note note--question">', '</div>', '', 'Bloc de question');
