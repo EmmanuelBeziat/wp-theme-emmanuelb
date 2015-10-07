@@ -19,7 +19,7 @@
 		<link rel="stylesheet" href="<?php echo get_stylesheet_uri(); ?>">
 		<!--[if lt IE 9]>
 			<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/ie.css">
-			<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
+			<script src="<?php echo get_template_directory_uri(); ?>/js/vendors/html5.js"></script>
 		<![endif]-->
 
 		<link rel="apple-touch-icon" sizes="57x57" href="<?php echo get_template_directory_uri(); ?>/images/favicons/apple-touch-icon-57x57.png">
