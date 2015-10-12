@@ -46,18 +46,11 @@ percentage(value1, value2)
 	(value1 / value2 * 100)%
 
 /**
- * Size shortcut
+ * Size shortcut (square by default)
  **/
-size(width, height)
+size(width, height = width)
 	height height
 	width width
-
-/**
- * Equal Size shortcut
- **/
-square(size)
-	height size
-	width size
 
 /**
  * Screenreaders only
@@ -99,21 +92,21 @@ imgResponsive(display = block)
 /**
  * Position locking
  **/
-positionAngles(top, right, bottom, left)
+absolutePos(top = auto, right= auto, bottom = auto, left = auto)
 	top top
 	right right
 	bottom bottom
 	left left
 
 /**
- * Generate automatic text shadow
+ * Generate long shadow at a specific size
  **/
 shadowMaker(iterations, blur, color)
 	$shadows = '0 0 0 transparent'
 	for i in 1..iterations
 		$shadows += ', %spx %spx' % (i i) blur color
 
-longShadow(iterations, blur, color)
+longShadow(iterations = 10, blur = 0, color = rgba(0, 0, 0, .5))
 	text-shadow unquote(shadowMaker(iterations, blur, color))
 
 /**
