@@ -2,7 +2,7 @@
  * Automatic tabs system
  * Version : 3.1
  * Emmanuel B. (www.emmanuelbeziat.com)
- * https://github.com/EmmanuelBEziat/jQuery-Tabs
+ * https://github.com/EmmanuelBeziat/jQuery-Tabs
  **/
 
 ;(function($, window, document, undefined) {

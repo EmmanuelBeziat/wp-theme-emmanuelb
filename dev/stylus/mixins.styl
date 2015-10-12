@@ -63,14 +63,14 @@ square(size)
  * Screenreaders only
  **/
 screenReaders()
-	position absolute
-	width 1px
-	height 1px
-	padding 0
-	margin -1px
-	overflow hidden
-	clip rect(0, 0, 0, 0)
-	border 0
+	position absolute !important
+	width 1px !important
+	height 1px !important
+	padding 0 !important
+	margin -1px !important
+	overflow hidden !important
+	clip rect(0, 0, 0, 0) !important
+	border 0 !important
 
 /**
  * Floats
@@ -115,6 +115,21 @@ shadowMaker(iterations, blur, color)
 
 longShadow(iterations, blur, color)
 	text-shadow unquote(shadowMaker(iterations, blur, color))
+
+/**
+ * Font-Face declaration generator
+ **/
+fontFace(name, webname, weight = 400, style = normal, path = "fonts/", svgname)
+	@font-face
+		font-family name
+		src url(path + webname + ".eot")
+		src url(path + webname + ".eot?#iefix") format("embedded-opentype"),
+			url(path + webname + ".woff2") format("woff2"),
+			url(path + webname + ".woff") format("woff"),
+			url(path + webname + ".ttf") format("truetype"),
+			url(path + webname + ".svg#" + svgname) format("svg")
+		font-weight weight
+		font-style style
 
 /**
  * Create color-based content
