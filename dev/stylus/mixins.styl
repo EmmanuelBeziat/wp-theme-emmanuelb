@@ -112,7 +112,7 @@ longShadow(iterations = 10, blur = 0, color = rgba(0, 0, 0, .5))
 /**
  * Font-Face declaration generator
  **/
-fontFace(name, webname, weight = 400, style = normal, path = "fonts/", svgname)
+fontFace(name, webname = name, weight = 400, style = normal, path = "fonts/", svgname = name)
 	@font-face
 		font-family name
 		src url(path + webname + ".eot")
