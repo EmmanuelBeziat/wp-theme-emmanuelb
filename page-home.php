@@ -31,25 +31,25 @@ get_header(); ?>
 				</h1>
 
 				<div id="competences" class="skills">
+				<?php $skillCategories = get_terms('skills_category');
+				foreach ($skillCategories as $skillCategory) : wp_reset_query(); ?>
 					<ul class="skill__list">
-						<li class="skill__item" data-skill="100">HTML / CSS</li>
-						<li class="skill__item" data-skill="60">Javascript / jQuery</li>
-						<li class="skill__item" data-skill="60">PHP</li>
-						<li class="skill__item" data-skill="70">WordPress</li>
-						<li class="skill__item" data-skill="40">C# .NET</li>
-						<li class="skill__item" data-skill="60">SQL</li>
+					<?php $args = [
+						'post_type' => 'skills',
+						'tax_query' => [[
+							'taxonomy' => 'skills_category',
+							'field' => 'slug',
+							'terms' => $skillCategory->slug,
+						]],
+						'order' => 'ASC'
+					];
+					$loop = new WP_Query($args);
+					while ($loop->have_posts()) : $loop->the_post();
+						$skillValue = get_post_meta($loop->post->ID, 'skill-value', true); ?>
+						<li class="skill__item" data-skill="<?php echo $skillValue ?>"><?php echo get_the_title() ?></li>
+					<?php endwhile; ?>
 					</ul>
-					<ul class="skill__list">
-						<li class="skill__item" data-skill="90">Graphisme 2D</li>
-						<li class="skill__item" data-skill="60">Graphisme 3D</li>
-						<li class="skill__item" data-skill="40">Animation</li>
-						<li class="skill__item" data-skill="40">Audio-visuel</li>
-					</ul>
-					<ul class="skill__list">
-						<li class="skill__item" data-skill="70">Windows</li>
-						<li class="skill__item" data-skill="50">Linux (Debian)</li>
-						<li class="skill__item" data-skill="30">Mac OSX</li>
-					</ul>
+				<?php endforeach; ?>
 				</div>
 			</section>
 
@@ -58,25 +58,25 @@ get_header(); ?>
 
 				<div class="portfolio-list">
 					<?php
-					$args = array(
+					$args = [
 						'post_type' => 'portfolio',
 						'post_status' => 'publish',
 						'posts_per_page' => -1,
 						'caller_get_posts'=> 1
-						);
+					];
 
 					$query = new WP_Query($args);
 					if ($query->have_posts()) :
 
 						while ($query->have_posts()) : $query->the_post();
-							$image_attr = array('class' => 'portfolio__thumbnail');
+							$image_attr = ['class' => 'portfolio__thumbnail'];
 							$colorclass = get_post_meta(get_the_ID(), 'portfolio-background', true);
 						?>
 
 						<figure class="portfolio__item">
 							<a href="<?php the_permalink() ?>" class="portfolio__link <?php echo isset($colorclass) ? $colorclass : ''; ?>" title="<?php the_title_attribute(); ?>">
 								<div class="portfolio__image">
-									<?php the_post_thumbnail(array(340,160), $image_attr); ?>
+									<?php the_post_thumbnail([340,160], $image_attr); ?>
 								</div>
 
 								<div class="portfolio-caption">
