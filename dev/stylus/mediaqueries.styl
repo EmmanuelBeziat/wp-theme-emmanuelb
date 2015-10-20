@@ -64,10 +64,10 @@
 		li
 			display inline-block
 
-	.secondary-menu__link .gi
-		font-size 1em
-		display inline-block
-		margin-right 10px
+		&__link .gi
+			font-size 1em
+			display inline-block
+			margin-right 10px
 
 	.navigation-main
 		width auto
@@ -82,8 +82,6 @@
 	.site-header__title
 	.navigation-social
 		float none
-
-	.navigation-social
 		margin-top 1em
 
 	/**
@@ -217,18 +215,18 @@
 	.children
 		margin-left 0
 
-	.post-footer__tag-links
-		display none
+	.post
+		&-content
+			text-align left
 
-	.post-content
-		text-align left
+		&-share
+		&-footer
+			&__links
+				float none
+				margin-top 10px
 
-	.post-share
-	.post-footer__links
-		float none
-
-	.post-footer__links
-		margin-top 10px
+			&__tag-links
+				display none
 
 	.portfolio
 		&__link
