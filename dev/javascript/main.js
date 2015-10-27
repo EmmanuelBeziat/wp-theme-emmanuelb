@@ -89,6 +89,7 @@ emmanuelb = (function($) {
     $container.find('.dialog__header').html(content.title);
     $container.find('.dialog__body').html(content.content);
     $container.delay(400).addClass(classType + ' ' + classOpen);
+    $('.site').addClass('de-emphasized');
   };
 
   /**
@@ -97,6 +98,7 @@ emmanuelb = (function($) {
    */
   dialogClose = function(event) {
     $(this).parents('.dialog').removeClass('dialog--open dialog--alert dialog--success');
+    $('.site').removeClass('de-emphasized');
     event.preventDefault();
   };
 

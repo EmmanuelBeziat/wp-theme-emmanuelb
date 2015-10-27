@@ -515,3 +515,23 @@ function eb_comments($comment, $args, $depth) {
 		</div>
 <?php
 }
+
+/**
+ * Modales
+ */
+function modales() {
+	?>
+	<div class="contact-alerts">
+		<div class="dialog" id="contact-alert" role="dialog">
+			<div class="dialog__content">
+				<header class="dialog__header"></header>
+				<div class="dialog__body"></div>
+				<footer class="dialog__footer">
+					<button type="button" class="dialog__close button" data-dismiss="alert">Fermer</button>
+				</footer>
+			</div>
+		</div>
+		<div class="dialog-overlay"></div>
+	</div>
+	<?php
+}

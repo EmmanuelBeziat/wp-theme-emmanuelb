@@ -19,6 +19,10 @@
 			</footer><!-- #footer -->
 		</div>
 
+		<?php if (is_front_page()) :
+			modales();
+		endif; ?>
+
 		<noscript>
 			<div class="noscript">
 				<div class="container">
