@@ -16,8 +16,6 @@
 
 get_header(); ?>
 
-<div id="main-content" class="main-content">
-
 <?php
 	/*if ( is_front_page() && twentyfourteen_has_featured_posts() ) {
 		// Include the featured content template.
@@ -25,38 +23,31 @@ get_header(); ?>
 	}*/
 ?>
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+<?php
+	get_sidebar('content');
+	if (have_posts()) :
 
-		<?php
-			get_sidebar('content');
-			if (have_posts()) :
+		// Navigation article précédent / suivant
+		custom_paging_nav('navigation--top');
 
-				// Navigation article précédent / suivant
-				custom_paging_nav('navigation--top');
+		// Boucle wordpress
+		while (have_posts()) : the_post();
 
-				// Boucle wordpress
-				while (have_posts()) : the_post();
+			/*
+			 * Include the post format-specific template for the content. If you want to
+			 * use this in a child theme, then include a file called called content-___.php
+			 * (where ___ is the post format) and that will be used instead.
+			 */
+			get_template_part( 'content', get_post_format());
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format());
+		endwhile;
+		// Navigation article précédent / suivant
+		custom_paging_nav('navigation--bottom');
+	else :
+		// S'il n'y a pas de contenu, inclure le template "aucun post trouvé" (none.php)
+		get_template_part( 'content', 'none' );
 
-				endwhile;
-				// Navigation article précédent / suivant
-				custom_paging_nav('navigation--bottom');
-			else :
-				// S'il n'y a pas de contenu, inclure le template "aucun post trouvé" (none.php)
-				get_template_part( 'content', 'none' );
-
-			endif;
-		?>
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
-</div><!-- #main-content -->
+	endif;
+?>
 
 <?php get_footer(); ?>

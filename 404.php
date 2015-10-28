@@ -9,21 +9,17 @@
 
 get_header(); ?>
 
+<section class="site-content">
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+	<header class="page__header">
+		<h1 class="page__title">Page introuvable</h1>
+	</header>
 
-			<header class="page__header">
-				<h1 class="page__title">Page introuvable</h1>
-			</header>
+	<div class="page-content">
+		<p>Ce que vous cherchez n'est pas ici. Avez-vous essayé une recherche ?</p>
 
-			<div class="page-content">
-				<p>Ce que vous cherchez n'est pas ici. Avez-vous essayé une recherche ?</p>
-
-				<?php get_search_form(); ?>
-			</div><!-- .page-content -->
-
-		</div><!-- #content -->
-	</div><!-- #primary -->
+		<?php get_search_form(); ?>
+	</div><!-- .page-content -->
+</section>
 
 <?php get_footer(); ?>

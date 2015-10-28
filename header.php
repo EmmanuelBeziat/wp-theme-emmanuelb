@@ -67,13 +67,13 @@
 	</head>
 	<?php flush(); ?>
 	<body <?php body_class(); ?>>
-		<div id="page" class="site">
-			<header id="header" class="site-header">
+		<div class="site">
+			<header class="site-header">
 				<div class="site-header__main">
 					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Emmanuel B.</a></h1>
 					<img class="portrait" src="<?php echo get_template_directory_uri(); ?>/images/emmanuelb.png" width="220" height="220" alt="Manu">
 
-					<nav id="social-links" class="navigation-social">
+					<nav class="navigation-social">
 						<ul class="list-unstyled">
 							<li><a class="navigation-social__link" href="https://pinterest.com/rhomanu/"><i class="gi gi-pinterest"></i>Pinterest</a></li>
 							<li><a class="navigation-social__link" href="https://plus.google.com/+Emmanuelbeziat-web" rel="publisher"><i class="gi gi-googleplus-alt"></i>Google+</a></li>
@@ -87,12 +87,12 @@
 					</nav>
 
 					<div class="site-header__content">
-						<div id="about-me" class="hidden-sm hidden-xs">
+						<div class="hidden-sm hidden-xs">
 							<p>jeune développeur web perpignanais passionné de geekeries</p>
 							<p>je travaille aussi chez <a href="http://www.italic.fr/" target="_blank">italic</a>, une chouette web-agency à paris !</p>
 							<p>et je suis également formateur web à l'<a href="http://www.lidem.eu/" target="_blank">IDEM</a>, dans l'sud !</p>
 						</div>
-						<nav id="links" class="secondary-menu">
+						<nav class="secondary-menu">
 							<ul class="list-unstyled">
 								<li>
 									<a class="secondary-menu__link" href="http://download.emmanuelbeziat.com/emmanuel-beziat-cv2014.pdf" rel="prefetch" target="_blank">
@@ -106,5 +106,7 @@
 				</div>
 			</header><!-- #header -->
 
-			<div id="main" class="site-main">
+			<div class="site-main">
 				<?php get_sidebar(); ?>
+
+				<main class="main-content">

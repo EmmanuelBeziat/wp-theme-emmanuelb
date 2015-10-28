@@ -11,29 +11,21 @@
  * @since Emmanuel B 2.5
  */
 
-get_header(); ?>
+get_header();
 
-<div id="main-content" class="main-content">
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
+get_sidebar('content');
 
-			<?php
-				get_sidebar('content');
-				// Start the Loop.
-				while (have_posts()) : the_post();
+// Start the Loop.
+while (have_posts()) : the_post();
 
-					// Inclure le template correspondant au contenu de page
-					get_template_part( 'content', 'page' );
+	// Inclure le template correspondant au contenu de page
+	get_template_part( 'content', 'page' );
 
-					// Afficher les commentaires s'ils sont ouverts et s'il y en a au moins un
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				endwhile;
-			?>
+	// Afficher les commentaires s'ils sont ouverts et s'il y en a au moins un
+	if ( comments_open() || get_comments_number() ) {
+		comments_template();
+	}
 
-		</div><!-- #content -->
-	</div><!-- #primary -->
-</div><!-- #main-content -->
+endwhile;
 
-<?php get_footer(); ?>
+get_footer(); ?>

@@ -8,7 +8,7 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php post_class(); ?>>
 	<?php
 		//twentyfourteen_post_thumbnail();
 		the_title( '<header class="post-header"><h1 class="post-header__title">', '</h1></header><!-- .entry-header -->' );

@@ -22,7 +22,7 @@ endforeach;
 	Soyez indulgent•e, ce genre de choses prend du temps !
 </div>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('portfolio-single'); ?>>
+<article <?php post_class('portfolio-single'); ?>>
 
 	<?php
 	// Output the featured image.

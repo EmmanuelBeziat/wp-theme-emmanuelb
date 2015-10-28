@@ -14,7 +14,7 @@
 		'theme_location' => 'top',
 		'container' => false,
 		'menu_class' => 'navigation-main',
-		'menu_id' => 'main-menu'
+		'menu_id' => ''
 	)); ?>
 </nav>
 <?php endif; ?>

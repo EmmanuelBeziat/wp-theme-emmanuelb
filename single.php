@@ -7,36 +7,29 @@
  * @since Emmanuel B 2.5
  */
 
-get_header(); ?>
+get_header();
+get_sidebar('content');
 
-	<div id="primary" class="content-area">
-		<div id="content" class="site-content" role="main">
-			<?php
-				get_sidebar('content');
+// Start the Loop.
+while (have_posts()) : the_post();
 
-				// Start the Loop.
-				while (have_posts()) : the_post();
+	// Navigation article précédent / suivant
+	custom_post_nav('navigation--top');
 
-					// Navigation article précédent / suivant
-					custom_post_nav('navigation--top');
+	/*
+	 * Include the post format-specific template for the content. If you want to
+	 * use this in a child theme, then include a file called called content-___.php
+	 * (where ___ is the post format) and that will be used instead.
+	 */
+	get_template_part('content', get_post_format());
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part('content', get_post_format());
+	// Navigation article précédent / suivant
+	custom_post_nav('navigation--bottom');
 
-					// Navigation article précédent / suivant
-					custom_post_nav('navigation--bottom');
+	// Afficher les commentaires s'ils sont ouverts et s'il y en a au moins un
+	if ( comments_open() || get_comments_number() ) {
+		comments_template();
+	}
+endwhile;
 
-					// Afficher les commentaires s'ils sont ouverts et s'il y en a au moins un
-					if ( comments_open() || get_comments_number() ) {
-						comments_template();
-					}
-				endwhile;
-			?>
-		</div><!-- #content -->
-	</div><!-- #primary -->
-
-<?php get_footer(); ?>
+get_footer(); ?>

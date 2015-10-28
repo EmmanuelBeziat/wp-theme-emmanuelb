@@ -9,10 +9,10 @@
  * @since Emmanuel B 2.5
  */
 ?>
-
+				</main>
 			</div><!-- #main -->
 
-			<footer id="footer" class="site-footer hidden-xl">
+			<footer class="site-footer hidden-xl">
 				<div class="site__info">
 					<div class="hidden-xl">© <?php echo date('Y')?> Emmanuel Béziat</div>
 				</div><!-- .site-info -->

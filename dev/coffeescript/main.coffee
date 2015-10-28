@@ -40,7 +40,7 @@ emmanuelb = (($) ->
 		sURLpage = sURL[1]
 		sURLanchor = window.location.hash
 		sClassName = 'navigation-main__item--current'
-		$menu = $('#main-menu')
+		$menu = $('.navigation-main')
 		$menuItemAccueil = $menu.find('a[href="/#accueil"]').parent()
 		$menuItemPortfolio = $menu.find('a[href="/#portfolio"]').parent()
 		$menuItemBlog = $menu.find('a[href="/blog/"]').parent()

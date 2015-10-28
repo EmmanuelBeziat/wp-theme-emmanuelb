@@ -7,7 +7,7 @@
  * @since Emmanuel B 2.5
  */
 ?>
-<div id="search-container" class="search-box-wrapper">
+<div class="search-box-wrapper">
 	<div class="search-box">
 		<form method="get" class="search-form modern-form" action="<?php echo get_option('siteurl'); ?>" autocomplete="off">
 			<div class="form-group">
