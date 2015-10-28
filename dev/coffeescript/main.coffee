@@ -48,6 +48,7 @@ emmanuelb = (($) ->
 		$menuItemAccueil.find('a').attr('data-toggle', 'tab').attr 'href', '#accueil'
 		$menuItemPortfolio.find('a').attr('data-toggle', 'tab').attr 'href', '#portfolio'
 		$menuItemContact.find('a').attr('data-toggle', 'tab').attr 'href', '#contact'
+
 		# Ajout des classes et des attributs sur les éléments
 		if sURLpage == 'blog'
 			$menuItemBlog.addClass sClassName
