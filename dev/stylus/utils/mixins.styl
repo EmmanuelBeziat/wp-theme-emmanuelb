@@ -56,8 +56,10 @@ rem(value, base = 16)
 /**
  * Px to Percent
  **/
-percentage(value1, value2)
-	(value1 / value2 * 100)%
+percentage(value, base)
+	value = remove-unit(value)
+	base = remove-unit(base)
+	(value / base * 100)%
 
 /**
  * Size shortcut (square by default)
