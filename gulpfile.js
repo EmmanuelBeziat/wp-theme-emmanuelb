@@ -39,7 +39,8 @@ gulp.task('stylus', function() {
 				.pipe(plugins.rename('style.css'))
 			.pipe(plugins.sourcemaps.write(path.prod.maps))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.prod.root));
+		.pipe(gulp.dest(path.prod.root))
+		.pipe(plugins.livereload());
 });
 
 /**
@@ -52,7 +53,8 @@ gulp.task('coffeescript', function() {
 				bare: true
 			}).on('error', plugins.util.log))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.dev.js));
+		.pipe(gulp.dest(path.dev.js))
+		.pipe(plugins.livereload());
 });
 
 /**
@@ -69,7 +71,8 @@ gulp.task('javascript', function() {
 				.pipe(plugins.concat('main.min.js'))
 			.pipe(plugins.sourcemaps.write('../maps'))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.prod.js));
+		.pipe(gulp.dest(path.prod.js))
+		.pipe(plugins.livereload());
 });
 
 /**
@@ -85,6 +88,7 @@ gulp.task('default', ['stylus', 'coffeescript', 'javascript', 'images'], functio
 });
 
 gulp.task('watch', function() {
+	plugins.livereload.listen();
 	gulp.watch(path.dev.stylus + '/**/*.styl', ['stylus']);
 	gulp.watch(path.dev.js + '/**/*.js', ['javascript']);
 	gulp.watch(path.dev.coffee + '/**/*.coffee', ['coffeescript', 'javascript']);
