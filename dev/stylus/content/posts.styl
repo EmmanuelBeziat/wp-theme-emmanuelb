@@ -12,16 +12,16 @@
 			margin 1.5em 0 2px
 
 			a
-				color colorTitle
+				color color-headings
 
 				&:hover
-					color colorEmphasis
+					color color-emphasis
 
 	// .post-meta
 	&-meta
 		// .post-meta--header
 		&--header
-			color colorEmphasis
+			color color-emphasis
 			font-size .85em
 			font-weight 200
 
@@ -40,8 +40,8 @@
 		a
 			display block
 			font-size 0
-			background lighten(colorBackground, 4%)
-			color colorText
+			background lighten(color-background, 4%)
+			color color-text
 			overflow hidden
 			text-align center
 			border-radius 2px
@@ -50,7 +50,7 @@
 		.gi
 			font-size 22px
 			line-height 32px
-			longShadow(20, 0, darken(colorBackground, 20%))
+			longShadow(20, 0, darken(color-background, 20%))
 			size(32px)
 			transition all .6s ease
 
@@ -85,14 +85,14 @@
 
 			a
 				border-radius 2px
-				background colorLink
-				color colorText
+				background color-links
+				color color-text
 				display block
 				padding 4px 10px
 
 				&:focus
 				&:hover
-					background colorEmphasis
+					background color-emphasis
 
 			.gi
 				line-height 1
@@ -118,11 +118,11 @@
 			font-size .8em
 
 			a
-				color colorCode
+				color color-code
 
 				&:hover
 				&:focus
-					color colorEmphasis
+					color color-emphasis
 
 	// .post-content
 	&-content
@@ -163,18 +163,18 @@
  **/
 .back-top
 	border-radius 2px
-	background colorCode
+	background color-code
 	float right
 	margin-top 4px
-	color colorBackground
+	color color-background
 	display block
 	padding 4px 10px
 	margin-left 10px
 
 	&:hover
 	&:focus
-		background colorEmphasis
-		color colorText
+		background color-emphasis
+		color color-text
 
 	.gi
 		font-size 1.25em
@@ -186,11 +186,11 @@
 	&-link
 		display inline-block
 		margin .5em 0
-		color colorTitle
+		color color-headings
 
 		&:hover
 		&:focus
-			color colorEmphasis
+			color color-emphasis
 
 		&:before
 		&:after

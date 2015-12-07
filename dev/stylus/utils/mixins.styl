@@ -20,14 +20,14 @@ centerBlock()
 /**
  * Basic container
  **/
-container(size = sizeWidthContent)
+container(size = width-content)
 	max-width size
 	padding-left 'calc(50% - %s)' % (size / 2)
 	padding-right 'calc(50% - %s)' % (size / 2)
 
-	@media mediaQueryTablet
-		padding-left sizeWidthGutter
-		padding-right sizeWidthGutter
+	@media mediaquery-tablet
+		padding-left width-gutter
+		padding-right width-gutter
 
 /**
  * List Unstyled
@@ -91,7 +91,7 @@ pull(value)
  * Hide text
  **/
 textHide()
-	font "0/0" a
+	font 0/0 a
 	color transparent
 	text-shadow none
 	background-color transparent
@@ -133,7 +133,6 @@ fontFace(font-name, font-src, svg-name = font-name, font-weight = 400, font-styl
 		fonts = ()
 		font-family font-name
 		if eot in formats
-			src url(font-src + ".eot")
 			push(fonts, 'url("' + font-src + '.eot?iefix") format("emebedded-opentype")')
 		if woff2 in formats
 			push(fonts, 'url("' + font-src + '.woff2") format("woff2")')

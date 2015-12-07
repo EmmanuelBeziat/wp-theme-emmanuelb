@@ -20,10 +20,10 @@
 			bottom 4px
 			left 0
 			right 0
-			background lighten(colorBackground, 20%)
+			background lighten(color-background, 20%)
 
 		&:after
-			background colorCode
+			background color-code
 			transform scaleX(0)
 			transition transform .3s
 
@@ -34,7 +34,7 @@
 		// .form-group--focus
 		&--focus
 			.form-label
-				color colorCode
+				color color-code
 
 			&:after
 				transform scaleX(1)
@@ -44,7 +44,7 @@
 		position relative
 		margin 0
 		display block
-		color darken(colorText, 10%)
+		color darken(color-text, 10%)
 		line-height 1
 		transform translateY(1.5em)
 		transition transform .3s, color .3s

@@ -3,7 +3,7 @@
  **/
 .comments
 	margin-top 3em
-	border-top 1px solid lighten(colorBackground, 20%)
+	border-top 1px solid lighten(color-background, 20%)
 	padding-top 2em
 
 	// .comments__title
@@ -15,7 +15,7 @@
 
 	// .comment-body
 	&-body
-		background lighten(colorBackground, 4%)
+		background lighten(color-background, 4%)
 		border-radius 3px
 		overflow hidden
 
@@ -47,9 +47,9 @@
 			margin 0
 
 			pre
-				background darken(colorBackground, 10%)
+				background darken(color-background, 10%)
 				padding .5em
-				color colorText
+				color color-text
 				font-size .875em
 				border-radius 2px
 
@@ -61,17 +61,17 @@
 	// .comment__header
 	&__header
 		padding .5em
-		background lighten(colorBackground, 6%)
+		background lighten(color-background, 6%)
 		overflow auto
-		color colorText
+		color color-text
 
 			.fn
 			a
-				color colorBackground
+				color color-background
 
 			a:hover
 			a:focus
-				color colorEmphasis
+				color color-emphasis
 
 	// .comment__meta
 	&__meta
@@ -81,15 +81,15 @@
 		padding-top 6px
 
 		a
-			color darken(colorText, 20%)
+			color darken(color-text, 20%)
 
 			&:hover
 			&:focus
-				color colorText
+				color color-text
 
 	// .comment__author
 	&__author
-		font-family fontsTitle
+		font-family fonts-stack-headings
 		font-size 1.25em
 		line-height 1.2
 		float left
@@ -98,21 +98,21 @@
 		.fn
 		.says
 			font-style normal
-			color colorText
+			color color-text
 
 		a
-			color colorLink
+			color color-links
 
 			&:focus
 			&:hover
-				color colorEmphasis
+				color color-emphasis
 
 	// .comment-reply-link
 	&-reply-link
 		display inline-block
-		background colorLink
+		background color-links
 		padding 2px 6px
-		color colorText
+		color color-text
 		border-radius 2px
 
 		&:before
@@ -125,8 +125,8 @@
 
 		&:hover
 		&:focus
-			background colorEmphasis
-			color colorText
+			background color-emphasis
+			color color-text
 
 .form-allowed-tags
 	display none
@@ -150,39 +150,39 @@
 .bypostauthor
 	& > .comment-body
 		.comment__header
-			background colorCode
+			background color-code
 
 		.comment__author
 			/*.fn:before
 				content '\f408'
 				font-family genericons
-				color colorEmphasis
+				color color-emphasis
 				font-size .8em
 				vertical-align middle*/
 
 			a
-				color colorBackground
+				color color-background
 
 			.says
-				color colorBackground
+				color color-background
 
 			a:hover
 			a:focus
-				color colorText
+				color color-text
 
 		.comment__meta
 			a
-				color colorText
+				color color-text
 
 				&:hover
 				&:focus
-					color colorBackground
+					color color-background
 
 .comment-respond
 	margin-top 4em
 
 #wmd-button-barcomment
-	width (sizeWidthContent - 15px)
+	width (width-content - 15px)
 	margin-left 8.5em
 
 .wmd-button

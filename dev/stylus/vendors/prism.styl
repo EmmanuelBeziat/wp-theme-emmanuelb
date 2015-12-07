@@ -9,7 +9,7 @@ code[class*="language-"]
 pre[class*="language-"]
 	color #f8f8f2
 	text-shadow 0 1px rgba(0,0,0,0.3)
-	font-family fontsCode
+	font-family fonts-stack-monospace
 	direction ltr
 	text-align left
 	line-height 1.25em
@@ -24,7 +24,7 @@ pre[class*="language-"] ::-moz-selection
 code[class*="language-"]::-moz-selection
 code[class*="language-"] ::-moz-selection
 	text-shadow none
-	background colorCode
+	background color-code
 
 
 pre[class*="language-"]::selection
@@ -32,7 +32,7 @@ pre[class*="language-"] ::selection
 code[class*="language-"]::selection
 code[class*="language-"] ::selection
 	text-shadow none
-	background colorCode
+	background color-code
 
 
 @media print
@@ -159,8 +159,8 @@ div.prism-show-language
 	position relative
 
 	& > div.prism-show-language-label[data-language]
-		color colorText
-		background-color lighten(colorBackground, 10%)
+		color color-text
+		background-color lighten(color-background, 10%)
 		border-radius 0 3px 0 3px
 		display inline-block
 		position absolute

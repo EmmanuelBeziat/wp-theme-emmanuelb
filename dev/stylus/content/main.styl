@@ -3,7 +3,7 @@
  */
 .main-title
 	text-align center
-	font-family fontsTitle
+	font-family fonts-stack-headings
 	line-height 1
 	margin-bottom 2em
 	word-wrap break-word
@@ -11,10 +11,10 @@
 .hcard
 	&__name
 		font-size 2.15em
-		color colorCode
+		color color-code
 
 	&__age
-		color colorLink
+		color color-links
 		font-size 1.6em
 
 	&__status
@@ -23,11 +23,11 @@
 		margin-left 15px
 
 	&__job
-		color colorEmphasis
+		color color-emphasis
 		font-size 1.65em
 
 	&__job--alt
-		color colorTitle
+		color color-headings
 		font-size 2em
 
 .skill
@@ -55,7 +55,7 @@
 			right 0
 			content " "
 			height 6px
-			background lighten(colorBackground, 10%)
+			background lighten(color-background, 10%)
 			z-index 4
 
 		&:after
@@ -64,7 +64,7 @@
 			left 0
 			content ""
 			height 6px
-			background colorCode
+			background color-code
 			z-index 5
 			transition .5s
 			width 0
@@ -106,7 +106,7 @@
 
 	&-list
 		clearfix()
-		width (sizeWidthContent + 1.250)
+		width (width-content + 1.250)
 		margin 40px 0 0 -20px
 
 	&__item
@@ -152,30 +152,30 @@
 		transform translateY(50%)
 
 		&__title
-			color colorText
+			color color-text
 			font-size 2.25em
 			margin 0 0 10px
 			transform translateY(100%)
 			transition tranform 2s ease
 
 	&-red
-		background colorLink
+		background color-links
 	&-blue
-		background colorTitle
+		background color-headings
 	&-green
-		background colorCode
+		background color-code
 	&-yellow
-		background colorEmphasis
+		background color-emphasis
 	&-pink
-		background colorStrong
+		background color-strong
 	&-black
-		background lighten(colorBackground, 5%)
+		background lighten(color-background, 5%)
 
 	&__thanks
-		color colorCode
+		color color-code
 		text-align right
 		i
-			color colorLink
+			color color-links
 
 	&-categories
 		position absolute
@@ -185,7 +185,7 @@
 
 		&__item
 			display inline-block
-			color colorText
+			color color-text
 			.gi
 				font-size 2.25em
 				width auto
@@ -211,7 +211,7 @@
 
 		&__label
 			font-weight 700
-			color colorEmphasis
+			color color-emphasis
 			margin-right 20px
 
 		&__category
@@ -222,5 +222,5 @@
 				transform translateY(4px)
 				width auto
 				height auto
-				color colorCode
+				color color-code
 				font-size 1.25em

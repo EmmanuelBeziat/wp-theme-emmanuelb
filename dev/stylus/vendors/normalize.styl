@@ -24,15 +24,15 @@ html
 
 body
 	height 100%
-	background colorBackground
-	color colorText
+	background color-background
+	color color-text
 	margin 0
-	font 400 sizeFontBase/1.5em fontsBase
+	font 400 font-size-root/1.5em fonts-stack-common
 
 a
 	text-decoration none
 	transition all .1s ease-in-out
-	color colorLink
+	color color-links
 
 	img
 		border 0
@@ -43,7 +43,7 @@ a
 	&:active
 	&:hover
 		outline 0
-		color colorEmphasis
+		color color-emphasis
 
 	&[target="_blank"]::after
 		display inline-block
@@ -58,16 +58,16 @@ a
 		content '\f442'
 
 h1
-	color colorCode
-	font 3.6em/1em fontsTitle
+	color color-code
+	font 3.6em/1em fonts-stack-headings
 
 h2
-	color colorTitle
-	font 3.2em/1em fontsTitle
+	color color-headings
+	font 3.2em/1em fonts-stack-headings
 	margin 2em 0 .4em
 
 h3
-	font 2em/1em fontsTitle
+	font 2em/1em fonts-stack-headings
 	margin 1.6em 0 .3em
 
 h2:first-child
@@ -86,7 +86,7 @@ abbr[title]
 b
 strong
 	font-weight 700
-	color colorEmphasis
+	color color-emphasis
 
 cite
 dfn
@@ -95,7 +95,7 @@ i
 	font-style italic
 
 em
-	color colorEmphasis
+	color color-emphasis
 
 ins
 mark
@@ -139,7 +139,7 @@ blockquote
 		position absolute
 		left -60px
 		top -15px
-		color colorText
+		color color-text
 
 	cite
 	small
@@ -166,14 +166,14 @@ blockquote
 		display block
 		font-size 80%
 		line-height 1.42857143
-		color colorEmphasis
+		color color-emphasis
 		padding-top 10px
 
 		&::before
 			content '— '
 
 q
-	color colorEmphasis
+	color color-emphasis
 	font-style italic
 
 	&::before
@@ -262,7 +262,7 @@ textarea
 	vertical-align baseline
 	padding 5px
 	border 0
-	font 400 1em/1.5 fontsBase
+	font 400 1em/1.5 fonts-stack-common
 	background transparent
 	transition all .4s ease
 	color #eee
@@ -345,7 +345,7 @@ button
 	height 2.25em
 	line-height 2.25em
 	font-size 1em
-	background-color colorCode
+	background-color color-code
 	text-transform uppercase
 
 	.gi
@@ -358,11 +358,11 @@ button
 
 [type="submit"]:hover
 [type="submit"]:focus
-	background colorEmphasis
+	background color-emphasis
 	outline none
 
 [type="submit"]:active
-	background colorLink
+	background color-links
 	outline none
 
 // Specificity overrides
@@ -375,7 +375,7 @@ input[type="button"]
 label
 	display block
 	margin 0
-	font 300 1em/1 fontsBase
+	font 300 1em/1 fonts-stack-common
 
 table
 td
@@ -416,15 +416,15 @@ hr
 	margin-bottom 23px
 
 kbd
-	border 1px solid colorText
+	border 1px solid color-text
 	border-radius 2px
 
 ::-moz-selection
-	background colorEmphasis
-	color colorBackground
+	background color-emphasis
+	color color-background
 	text-shadow none
 
 ::selection
-	background colorEmphasis
-	color colorBackground
+	background color-emphasis
+	color color-background
 	text-shadow none

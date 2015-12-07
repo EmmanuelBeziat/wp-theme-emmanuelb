@@ -2,15 +2,15 @@
  * Header
  **/
 .site-header
-	width sizeWidthHeader
+	width width-header
 	float left
 
 	&:after
 		content ""
 		position fixed
-		background lighten(colorBackground, 4%)
-		width sizeWidthHeader
-		box-shadow 0 0 5px darken(colorBackground, 10%)
+		background lighten(color-background, 4%)
+		width width-header
+		box-shadow 0 0 5px darken(color-background, 10%)
 		left 0
 		bottom 0
 		top 0
@@ -18,27 +18,27 @@
 
 	// .site-header__main
 	&__main
-		background lighten(colorBackground, 4%)
+		background lighten(color-background, 4%)
 		padding 1em 2.5em
-		color colorText
+		color color-text
 		text-align center
 		position relative
 		z-index 2
 
 	&__content a:hover
 	&__content a:focus
-		color colorEmphasis
+		color color-emphasis
 
 	// .site-header__title
 	&__title
 		margin-top 0
 
 		a
-			color colorCode
+			color color-code
 
 		a:hover
 		a:focus
-			color colorLink
+			color color-links
 
 /**
  * Social
@@ -56,16 +56,16 @@
 		display block
 		width 56px
 		height 56px
-		background colorBackground
+		background color-background
 		border-radius 5%
-		color colorText
+		color color-text
 		overflow hidden
 		text-align center
 		-webkit-font-smoothing antialiased
 
 		&:hover
 		&:focus
-			color colorText
+			color color-text
 
 			.gi
 				transition all .1s ease
@@ -108,14 +108,14 @@
 		width 56px
 		height 56px
 		transition all .5s ease
-		longShadow(35, 0, darken(colorBackground, 20%))
+		longShadow(35, 0, darken(color-background, 20%))
 
 .secondary-menu
 	margin 4em 0
 
 	// .secondary-menu__link
 	&__link
-		font 1.6em fontsTitle
+		font 1.6em fonts-stack-headings
 
 	.gi
 		display block
@@ -134,7 +134,7 @@
 	padding 0
 	list-style none
 	text-align right
-	width sizeWidthContent
+	width width-content
 
 	// .navigation-main__item
 	&__item
@@ -142,7 +142,7 @@
 
 		a
 			display block
-			font 2em/1em fontsTitle
+			font 2em/1em fonts-stack-headings
 			padding 20px 0 10px
 			position relative
 			transform translateZ(0)
@@ -151,7 +151,7 @@
 			&:before
 			&:after
 				content ""
-				color colorText
+				color color-text
 				opacity 0
 				z-index -1
 				transition all .6s ease
@@ -188,7 +188,7 @@
 		&--current:nth-child(1) a:focus:before
 		&--current:nth-child(1) a:hover:after
 		&--current:nth-child(1) a:focus:after
-			color colorStrong
+			color color-strong
 
 		&:nth-child(2) a:hover
 		&:nth-child(2) a:focus
@@ -197,7 +197,7 @@
 		&--current:nth-child(2) a:focus:before
 		&--current:nth-child(2) a:hover:after
 		&--current:nth-child(2) a:focus:after
-			color colorTitle
+			color color-headings
 
 		&:nth-child(3) a:hover
 		&:nth-child(3) a:focus
@@ -206,7 +206,7 @@
 		&--current:nth-child(3) a:focus:before
 		&--current:nth-child(3) a:hover:after
 		&--current:nth-child(3) a:focus:after
-			color colorCode
+			color color-code
 
 		&:nth-child(4) a:hover
 		&:nth-child(4) a:focus
@@ -215,4 +215,4 @@
 		&--current:nth-child(4) a:focus:before
 		&--current:nth-child(4) a:hover:after
 		&--current:nth-child(4) a:focus:after
-			color colorEmphasis
+			color color-emphasis
