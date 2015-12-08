@@ -121,8 +121,8 @@
 		position relative
 		overflow hidden
 
-		&:focus
 		&:hover
+		&:focus
 			.portfolio-caption
 				opacity 1
 				transform translateY(0)
@@ -144,7 +144,7 @@
 	&-caption
 		opacity 0
 		position absolute
-		absolutePos(0, 0, 0, 0)
+		absoluteLock(0)
 		background rgba(0,0,0,.6)
 		padding 10px
 		text-shadow 0 1px 4px rgba(0,0,0,0.5)
@@ -179,7 +179,7 @@
 
 	&-categories
 		position absolute
-		absolutePos(auto, 10px, 10px, auto)
+		absoluteLock(auto, 10px, 10px, auto)
 		transform translateY(100%)
 		transition tranform 2s ease
 
