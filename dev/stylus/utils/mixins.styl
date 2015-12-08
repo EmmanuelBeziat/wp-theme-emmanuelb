@@ -88,16 +88,6 @@ pull(value)
 	float value
 
 /**
- * Hide text
- **/
-textHide()
-	font 0/0 a
-	color transparent
-	text-shadow none
-	background-color transparent
-	border 0
-
-/**
  * Responsive images
  **/
 imgResponsive(display = block)
@@ -128,10 +118,12 @@ longShadow(iterations = 10, blur = 0, color = rgba(0, 0, 0, .5))
 /**
  * Font-Face declaration generator
  **/
-fontFace(font-name, font-src, svg-name = font-name, font-weight = 400, font-style = normal, formats = eot woff2 woff truetype svg)
+fontFace(font-name, font-src, local-name = font-name, svg-name = font-name, font-weight = 400, font-style = normal, formats = local eot woff2 woff truetype svg)
 	@font-face
 		fonts = ()
 		font-family font-name
+		if local in formats
+			push(fonts, 'local("' + local-name +'")')
 		if eot in formats
 			push(fonts, 'url("' + font-src + '.eot?iefix") format("emebedded-opentype")')
 		if woff2 in formats
