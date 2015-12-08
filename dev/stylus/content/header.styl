@@ -147,6 +147,7 @@
 			position relative
 			transform translateZ(0)
 			outline 0
+			transition all 0s, color .6s ease
 
 			&:before
 			&:after
@@ -160,10 +161,12 @@
 			&:before
 				content "< "
 				transform translateX(20px)
+				padding-right em(2)
 
 			&:after
 				content " />"
 				transform translateX(-20px)
+				padding-left em(3)
 
 		& a:hover:before
 		& a:focus:before
