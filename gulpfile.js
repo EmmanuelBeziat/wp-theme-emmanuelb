@@ -21,6 +21,13 @@ var themeName = 'emmanuelb',
 	};
 
 /**
+ * livereload
+ */
+gulp.task('reload', function() {
+	plugins.livereload();
+});
+
+/**
  * Sauvegarde et compresse les fichiers stylus dans un unique fichier .css
  * Garde le comportement @require de stylus
  * Crée un fichier sourcemap dans /maps/
@@ -80,7 +87,7 @@ gulp.task('javascript', function() {
  **/
 gulp.task('images', function() {
 	return gulp.src(path.dev.img + '/**/*')
-		.pipe(plugins.imagemin())
+		.pipe(plugins.cache(plugins.imagemin()))
 		.pipe(gulp.dest(path.prod.img));
 });
 
@@ -92,4 +99,5 @@ gulp.task('watch', function() {
 	gulp.watch(path.dev.stylus + '/**/*.styl', ['stylus']);
 	gulp.watch(path.dev.js + '/**/*.js', ['javascript']);
 	gulp.watch(path.dev.coffee + '/**/*.coffee', ['coffeescript', 'javascript']);
+	gulp.watch('**/*.php', ['reload']);
 });
