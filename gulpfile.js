@@ -3,20 +3,27 @@ var gulp = require('gulp'),
 
 var themeName = 'emmanuelb',
 	path = {
-		prod: {
-			root: './',
-			css: './css',
-			js: './js',
-			img: './images',
-			maps: './maps'
+		fonts: {
+			src: 'dev/fonts/',
+			dest: 'fonts/'
 		},
-		dev: {
-			root: './dev/',
-			stylus: './dev/stylus',
-			coffee: './dev/coffeescript',
-			maps: './dev/maps',
-			img: './dev/images',
-			js: './dev/javascript'
+		images: {
+			src: 'dev/images/',
+			dest: 'img/'
+		},
+		maps: {
+			dest: '../maps/'
+		},
+		scripts: {
+			src: {
+				coffee: 'dev/coffeescript/',
+				js: 'dev/javascript/'
+			},
+			dest: 'js/'
+		},
+		styles: {
+			src: 'dev/stylus/',
+			dest: '/'
 		}
 	};
 
@@ -33,20 +40,20 @@ gulp.task('reload', function() {
  * Crée un fichier sourcemap dans /maps/
  **/
 gulp.task('stylus', function() {
-	return gulp.src(path.dev.stylus + '/main.styl')
+	return gulp.src(path.styles.src + 'main.styl')
 		.pipe(plugins.plumber())
-			.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.stylus({
-					compress: true
-				}))
-				.pipe(plugins.autoprefixer({
-					browsers: ['last 3 versions'],
-					cascade: false
-				}))
-				.pipe(plugins.rename('style.css'))
-			.pipe(plugins.sourcemaps.write(path.prod.maps))
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.stylus({
+			compress: true
+		}))
+		.pipe(plugins.autoprefixer({
+			browsers: ['last 3 versions'],
+			cascade: false
+		}))
+		.pipe(plugins.rename('style.css'))
+		.pipe(plugins.sourcemaps.write(path.styles.dest + 'maps'))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.prod.root))
+		.pipe(gulp.dest(path.styles.dest))
 		.pipe(plugins.livereload());
 });
 
@@ -54,13 +61,13 @@ gulp.task('stylus', function() {
  * Compile les fichiers coffee en javascript
  **/
 gulp.task('coffeescript', function() {
-	return gulp.src(path.dev.coffee + '/*.coffee')
+	return gulp.src(path.scripts.src.coffee + 'main.coffee')
 		.pipe(plugins.plumber())
-			.pipe(plugins.coffee({
-				bare: true
-			}).on('error', plugins.util.log))
+		.pipe(plugins.coffee({
+			bare: true
+		}).on('error', plugins.util.log))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.dev.js))
+		.pipe(gulp.dest(path.scripts.src.js))
 		.pipe(plugins.livereload());
 });
 
@@ -69,16 +76,16 @@ gulp.task('coffeescript', function() {
  * Crée un fichier sourcemap dans /maps/
  **/
 gulp.task('javascript', function() {
-	return gulp.src([path.dev.js + '/vendors/*.js', path.dev.js + '/plugins/*.js', path.dev.js + '/*.js'])
+	return gulp.src([path.scripts.src.js + 'vendors/*.js', path.scripts.src.js+ 'plugins/*.js', path.scripts.src.js + '*.js'])
 		.pipe(plugins.plumber())
-			.pipe(plugins.sourcemaps.init())
-				.pipe(plugins.uglify({
-					preserveComments: 'some'
-				}))
-				.pipe(plugins.concat('main.min.js'))
-			.pipe(plugins.sourcemaps.write('../maps'))
+		.pipe(plugins.sourcemaps.init())
+		.pipe(plugins.uglify({
+			preserveComments: 'some'
+		}))
+		.pipe(plugins.concat('main.min.js'))
+		.pipe(plugins.sourcemaps.write(path.maps.dest))
 		.pipe(plugins.plumber.stop())
-		.pipe(gulp.dest(path.prod.js))
+		.pipe(gulp.dest(path.scripts.dest))
 		.pipe(plugins.livereload());
 });
 
@@ -86,18 +93,20 @@ gulp.task('javascript', function() {
  * Compresse les images
  **/
 gulp.task('images', function() {
-	return gulp.src(path.dev.img + '/**/*')
+	return gulp.src(path.images.src + '**/*')
 		.pipe(plugins.cache(plugins.imagemin()))
-		.pipe(gulp.dest(path.prod.img));
+		.pipe(gulp.dest(path.images.dest));
 });
 
-gulp.task('default', ['stylus', 'coffeescript', 'javascript', 'images'], function() {
-});
-
+/**
+ * Tâches de watch
+ */
 gulp.task('watch', function() {
 	plugins.livereload.listen();
-	gulp.watch(path.dev.stylus + '/**/*.styl', ['stylus']);
-	gulp.watch(path.dev.js + '/**/*.js', ['javascript']);
-	gulp.watch(path.dev.coffee + '/**/*.coffee', ['coffeescript', 'javascript']);
+	gulp.watch(path.styles.src + '**/*.styl', ['stylus']);
+	gulp.watch(path.scripts.src.js + '**/*.js', ['javascript']);
+	gulp.watch(path.scripts.src.coffee + '**/*.coffee', ['coffeescript', 'javascript']);
 	gulp.watch('**/*.php', ['reload']);
 });
+
+gulp.task('default', ['stylus', 'coffeescript', 'javascript', 'images']);
