@@ -2,28 +2,32 @@ var gulp = require('gulp'),
 	plugins = require('gulp-load-plugins')();
 
 var themeName = 'emmanuelb',
+	project = {
+		dev: 'dev/',
+		dist: themeName + '/'
+	},
 	path = {
 		fonts: {
-			src: 'dev/fonts/',
-			dest: 'fonts/'
+			src: project.dev + 'fonts/',
+			dest: project.dist + 'fonts/'
 		},
 		images: {
-			src: 'dev/images/',
-			dest: 'img/'
+			src: project.dev + 'images/',
+			dest: project.dist + 'images/'
 		},
 		maps: {
 			dest: '../maps/'
 		},
 		scripts: {
 			src: {
-				coffee: 'dev/coffeescript/',
-				js: 'dev/javascript/'
+				coffee: project.dev + 'coffeescript/',
+				js: project.dev + 'javascript/'
 			},
-			dest: 'js/'
+			dest: project.dist + 'js/'
 		},
 		styles: {
-			src: 'dev/stylus/',
-			dest: '/'
+			src: project.dev + 'stylus/',
+			dest: project.dist
 		}
 	};
 
@@ -51,8 +55,9 @@ gulp.task('stylus', function() {
 			cascade: false
 		}))
 		.pipe(plugins.rename('style.css'))
-		.pipe(plugins.sourcemaps.write(path.styles.dest + 'maps'))
+		.pipe(plugins.sourcemaps.write('maps'))
 		.pipe(plugins.plumber.stop())
+		//.pipe(plugins.size())
 		.pipe(gulp.dest(path.styles.dest))
 		.pipe(plugins.livereload());
 });
@@ -67,6 +72,7 @@ gulp.task('coffeescript', function() {
 			bare: true
 		}).on('error', plugins.util.log))
 		.pipe(plugins.plumber.stop())
+		//.pipe(plugins.size())
 		.pipe(gulp.dest(path.scripts.src.js))
 		.pipe(plugins.livereload());
 });
@@ -85,6 +91,7 @@ gulp.task('javascript', function() {
 		.pipe(plugins.concat('main.min.js'))
 		.pipe(plugins.sourcemaps.write(path.maps.dest))
 		.pipe(plugins.plumber.stop())
+		//.pipe(plugins.size())
 		.pipe(gulp.dest(path.scripts.dest))
 		.pipe(plugins.livereload());
 });
@@ -95,6 +102,7 @@ gulp.task('javascript', function() {
 gulp.task('images', function() {
 	return gulp.src(path.images.src + '**/*')
 		.pipe(plugins.cache(plugins.imagemin()))
+		//.pipe(plugins.size())
 		.pipe(gulp.dest(path.images.dest));
 });
 
