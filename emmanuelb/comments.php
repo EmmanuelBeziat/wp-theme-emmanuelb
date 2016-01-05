@@ -68,17 +68,17 @@ if ( post_password_required() ) {
 		<?php else: ?>
 
 			<div class="comment-form__info">
-				<p>Votre adresse de messagerie ne sera pas publiée. Les champs obligatoires sont indiqués avec <i class="gi gi-star"></i></p>
+				<p>Votre adresse de messagerie ne sera pas publiée. Les champs obligatoires sont indiqués avec <i class="icon-star"></i></p>
 				<div class="note note--info">Si vous avez un problème avec un code, utilisez <a href="http://jsfiddle.net/" title="JsFiddle" target="_blank">JSFiddle</a>, <a href="http://codepen.io" title="CodePen" target="_blank">CodePen</a>, <a href="http://dabblet.com/" title="Dabblet" target="_blank">Dabblet</a> (etc.) pour le montrer. Si votre problème est plus complexe, postez plutôt sur un forum d'entraide comme <a href="http://zestedesavoir.com/" title="ZesteDeSavoir" target="_blank">Zeste De Savoir</a> ou <a href="http://fr.openclassrooms.com" title="Openclassrooms" target="_blank">OpenClassrooms</a>.</div>
 			</div>
 
 			<div class="form-group">
-				<label class="form-label" for="author">Nom <i class="gi gi-star"></i></label>
+				<label class="form-label" for="author">Nom <i class="icon-star"></i></label>
 				<input id="author" class="form-input" name="author" type="text" value="<?php echo esc_attr($comment_author)?>" required>
 			</div>
 
 			<div class="form-group">
-				<label class="form-label" for="email">Adresse e-mail <i class="gi gi-star"></i></label>
+				<label class="form-label" for="email">Adresse e-mail <i class="icon-star"></i></label>
 				<input id="email" class="form-input" name="email" type="email" value="<?php echo esc_attr($comment_author_email)?>" required>
 			</div>
 
@@ -90,12 +90,12 @@ if ( post_password_required() ) {
 		<?php endif; ?>
 
 		<div class="form-group" id="respond">
-			<label class="form-label" for="comment">Commentaire <i class="gi gi-star"></i></label>
+			<label class="form-label" for="comment">Commentaire <i class="icon-star"></i></label>
 			<textarea id="comment" class="form-input" name="comment" required></textarea>
 		</div>
 
 		<div class="form-submit">
-			<button name="submit" class="button" type="submit" id="submit"><i class="gi gi-comment"></i> Laisser un commentaire</button>
+			<button name="submit" class="button" type="submit" id="submit"><i class="icon-paper-plane"></i> Laisser un commentaire</button>
 			<?php comment_id_fields(); ?>
 		</div>
 

@@ -13,7 +13,7 @@
 			<div class="form-group">
 				<label class="form-label">Rechercher&nbsp;:</label>
 				<input type="search" class="form-input" value="<?php get_search_query(); ?>" name="s" title="Rechercher&nbsp;:">
-				<button type="submit" class="button-search"><i class="gi gi-search"></i></button>
+				<button type="submit" class="button-search"><i class="icon-search"></i></button>
 			</div>
 		</form>
 	</div>

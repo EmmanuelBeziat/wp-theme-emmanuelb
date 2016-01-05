@@ -80,7 +80,7 @@ get_header(); ?>
 							<ul class="list-unstyled">
 								<?php foreach (get_the_terms(get_the_ID(), 'portfolio_category') as $category): ?>
 								<li class="portfolio-categories__item">
-									<i class="gi gi-<?php echo $category->slug; ?>"></i>
+									<i class="icon-<?php echo $category->slug; ?>"></i>
 									<span class="portfolio-categories__name sr-only"><?php echo $category->name; ?></span>
 								</li>
 								<?php endforeach; ?>
@@ -118,7 +118,7 @@ get_header(); ?>
 		</div>
 
 		<div class="form-group sr-only">
-			<label class="form-label" for="firstname">Ne pas remplir !<i class="gi gi-star"></i></label>
+			<label class="form-label" for="firstname">Ne pas remplir !<i class="icon-star"></i></label>
 			<input id="firstname" class="form-input" name="firstname" type="text" tabindex="-1">
 		</div>
 
@@ -133,7 +133,7 @@ get_header(); ?>
 		</div>
 
 		<div class="form-submit">
-			<button name="submit" class="button" type="submit" id="submit"><i class="gi gi-mail"></i> Envoyer un mail</button>
+			<button name="submit" class="button" type="submit" id="submit"><i class="icon-paper-plane"></i> Envoyer un mail</button>
 		</div>
 	</form>
 </section>

@@ -13,7 +13,7 @@
 <?php
 $categories = '';
 foreach (get_the_terms(get_the_ID(), 'portfolio_category') as $category):
-	$categories .= '<span class="portfolio-single-meta__category"><i class="gi gi-'.$category->slug.'"></i> '.$category->name.'</span>';
+	$categories .= '<span class="portfolio-single-meta__category"><i class="icon-'.$category->slug.'"></i> '.$category->name.'</span>';
 endforeach;
 ?>
 

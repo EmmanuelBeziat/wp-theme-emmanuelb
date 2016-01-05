@@ -75,14 +75,14 @@
 
 					<nav class="navigation-social">
 						<ul class="list-unstyled">
-							<li><a class="navigation-social__link" href="https://pinterest.com/rhomanu/"><i class="gi gi-pinterest"></i>Pinterest</a></li>
-							<li><a class="navigation-social__link" href="https://plus.google.com/+Emmanuelbeziat-web" rel="publisher"><i class="gi gi-googleplus-alt"></i>Google+</a></li>
-							<li><a class="navigation-social__link" href="https://twitter.com/emmanuelbeziat"><i class="gi gi-twitter"></i>Twitter</a></li>
-							<li><a class="navigation-social__link" href="https://www.facebook.com/emmanuelbeziat"><i class="gi gi-facebook-alt"></i>Facebook</a></li>
-							<li><a class="navigation-social__link" href="blog/"><i class="gi gi-wordpress"></i>Blog</a></li>
-							<li><a class="navigation-social__link" href="https://www.linkedin.com/pub/emmanuel-b/49/429/542"><i class="gi gi-linkedin"></i>LinkedIn</a></li>
-							<li><a class="navigation-social__link" href="http://codepen.io/EmmanuelB/"><i class="gi gi-codepen"></i>CodePen</a></li>
-							<li><a class="navigation-social__link" href="https://github.com/EmmanuelBeziat"><i class="gi gi-github"></i>GitHub</a></li>
+							<li><a class="navigation-social__link" href="https://pinterest.com/rhomanu/"><i class="icon-pinterest"></i>Pinterest</a></li>
+							<li><a class="navigation-social__link" href="https://plus.google.com/+Emmanuelbeziat-web" rel="publisher"><i class="icon-googleplus"></i>Google+</a></li>
+							<li><a class="navigation-social__link" href="https://twitter.com/emmanuelbeziat"><i class="icon-twitter"></i>Twitter</a></li>
+							<li><a class="navigation-social__link" href="https://www.facebook.com/emmanuelbeziat"><i class="icon-facebook"></i>Facebook</a></li>
+							<li><a class="navigation-social__link" href="blog/"><i class="icon-wordpress"></i>Blog</a></li>
+							<li><a class="navigation-social__link" href="https://www.linkedin.com/pub/emmanuel-b/49/429/542"><i class="icon-linkedin"></i>LinkedIn</a></li>
+							<li><a class="navigation-social__link" href="http://codepen.io/EmmanuelB/"><i class="icon-codepen"></i>CodePen</a></li>
+							<li><a class="navigation-social__link" href="https://github.com/EmmanuelBeziat"><i class="icon-github"></i>GitHub</a></li>
 						</ul>
 					</nav>
 
@@ -96,7 +96,7 @@
 							<ul class="list-unstyled">
 								<li>
 									<a class="secondary-menu__link" href="http://download.emmanuelbeziat.com/emmanuel-beziat-cv2016.pdf" rel="prefetch" target="_blank">
-										<i class="gi gi-code"></i>Téléchargez mon CV
+										<i class="icon-code"></i>Téléchargez mon CV
 									</a>
 								</li>
 							</ul>
