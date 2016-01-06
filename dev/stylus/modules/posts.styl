@@ -47,7 +47,8 @@
 			border-radius 2px
 			height 32px
 
-		.gi
+		[class^="icon-"]
+		[class*=" icon-"]
 			font-size 22px
 			line-height 32px
 			longShadow(20, 0, darken(color-background, 20%))
@@ -58,22 +59,23 @@
 		&__link
 			&:hover
 			&:focus
-				.gi
+				[class^="icon-"]
+				[class*=" icon-"]
 					transition all .1s ease
 
-				.gi-googleplus-alt
+				.icon-googleplus
 					background #df664f
 					longShadow(35, 0, darken(#b2523f, 30%))
 
-				.gi-twitter
+				.icon-twitter
 					background #48b9eb
 					longShadow(35, 0, darken(#3a94bc, 30%))
 
-				.gi-facebook-alt
+				.icon-facebook
 					background #3b5998
 					longShadow(35, 0, darken(#2f477a, 30%))
 
-				.gi-linkedin
+				.icon-linkedin
 					background #005a87
 					longShadow(35, 0, darken(#00486c, 30%))
 
@@ -94,9 +96,10 @@
 				&:hover
 					background color-emphasis
 
-			.gi
+			[class^="icon-"]
+			[class*=" icon-"]
 				line-height 1
-				font-family genericons
+				font-family emmanuelb
 				display inline-block
 				font-size 1.5em
 				vertical-align bottom
@@ -153,7 +156,7 @@
 		margin-left 3px
 
 .post-footer__tag-links
-	.gi-tag
+	.icon-tag
 		margin-right 5px
 		font-size 1.6em
 		vertical-align top
@@ -176,7 +179,8 @@
 		background color-emphasis
 		color color-text
 
-	.gi
+	[class^="icon-"]
+	[class*=" icon-"]
 		font-size 1.25em
 		width auto
 		height auto
@@ -198,31 +202,37 @@
 			display block
 			clear right
 
-.more-link .gi
-.nav-next .gi
-	line-height 1.4em
-	position relative
-	font-size 1.2em
-	right 0
-	transition right .2s linear
+.more-link
+.nav-next
+	[class^="icon-"]
+	[class*=" icon-"]
+		line-height 1.4em
+		position relative
+		font-size 1.2em
+		right 0
+		transition right .2s linear
 
-.nav-previous .gi
-	line-height 1.4em
-	position relative
-	font-size 1.2em
-	left 0
-	transition left .2s linear
+.nav-previous
+	[class^="icon-"]
+	[class*=" icon-"]
+		line-height 1.4em
+		position relative
+		font-size 1.2em
+		left 0
+		transition left .2s linear
 
 .more-link:hover
 .more-link:focus
 .nav-next:hover
 .nav-next:focus
-	.gi
+	[class^="icon-"]
+	[class*=" icon-"]
 		right -5px
 
 .nav-previous:hover
 .nav-previous:focus
-	.gi
+	[class^="icon-"]
+	[class*=" icon-"]
 		left -5px
 
 .paging-navigation
@@ -239,10 +249,11 @@
 .nav-previous
 	float left
 	width auto
+	padding-left 5px
 
 	a:before
-		content '\f430'
-		font 400 1.429em/1em Genericons
+		content '\e80a'
+		font 400 1.429em/1em emmanuelb
 		margin-right 2px
 		vertical-align bottom
 		position relative
@@ -256,10 +267,11 @@
 	float right
 	width auto
 	text-align right
+	padding-right 5px
 
 	a:after
-		content '\f429'
-		font 400 1.429em/1em Genericons
+		content '\e81b'
+		font 400 1.429em/1em emmanuelb
 		margin-left 2px
 		vertical-align bottom
 		position relative

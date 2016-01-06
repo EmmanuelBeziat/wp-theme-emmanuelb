@@ -31,7 +31,7 @@
 	</div><!-- .post-summary -->
 	<?php else : ?>
 	<div class="post-content">
-		<?php the_content('Lire la suite <i class="icon-right"></i>'); ?>
+		<?php the_content('Lire la suite <i class="icon-right-small"></i>'); ?>
 	</div><!-- .post-content -->
 	<?php endif; ?>
 

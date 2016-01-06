@@ -118,7 +118,7 @@ get_header(); ?>
 		</div>
 
 		<div class="form-group sr-only">
-			<label class="form-label" for="firstname">Ne pas remplir !<i class="icon-star"></i></label>
+			<label class="form-label" for="firstname">Ne pas remplir !<i class="icon-asterisk"></i></label>
 			<input id="firstname" class="form-input" name="firstname" type="text" tabindex="-1">
 		</div>
 
