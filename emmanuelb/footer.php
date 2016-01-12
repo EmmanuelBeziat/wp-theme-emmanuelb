@@ -33,7 +33,7 @@
 		</noscript>
 
 		<script src="<?php echo get_template_directory_uri(); ?>/js/main.min.js"></script>
-		<script async src="http://cdn.infographizm.com/javascript/twitter/widgets.js"></script>
+		<script async src="https://cdn.infographizm.com/javascript/twitter/widgets.js"></script>
 		<?php //wp_footer(); ?>
 	</body>
 </html>

@@ -10,11 +10,11 @@
 
 <?php if ( has_nav_menu( 'top' ) ) : ?>
 <nav class="navigation site-navigation">
-	<?php wp_nav_menu(array(
+	<?php wp_nav_menu([
 		'theme_location' => 'top',
 		'container' => false,
 		'menu_class' => 'navigation-main',
 		'menu_id' => ''
-	)); ?>
+	]); ?>
 </nav>
 <?php endif; ?>

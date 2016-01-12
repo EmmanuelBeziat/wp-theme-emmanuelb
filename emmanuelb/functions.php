@@ -6,11 +6,8 @@ remove_filter('the_content', 'wptexturize');
 remove_filter('the_excerpt', 'wptexturize');
 remove_filter('comment_text', 'wptexturize');
 
-remove_filter( 'the_content', 'wpautop' );
-remove_filter( 'the_excerpt', 'wpautop' );
-
-wp_dequeue_script('jquery');
-wp_dequeue_script('form');
+remove_filter('the_content', 'wpautop');
+remove_filter('the_excerpt', 'wpautop');
 
 /* Préparation du template
 ************************************/
@@ -20,7 +17,7 @@ function theme_setup() {
 	************************************/
 	add_theme_support('automatic-feed-links');
 	add_theme_support('post-thumbnails');
-	add_theme_support('html5', 'title-tag', ['search-form', 'comment-form', 'comment-list']);
+	add_theme_support('html5', ['search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'comment-list', 'title-tag']);
 
 	/* Menus
 	************************************/
@@ -33,11 +30,20 @@ function theme_setup() {
 	/** Sidebars
 	************************************/
 	if (function_exists('register_sidebar')) {
-		register_sidebar();
+		//gister_sidebar();
 	}
 }
 
 add_action('after_setup_theme', 'theme_setup');
+
+/*
+
+ */
+function filters_scripts() {
+	wp_dequeue_script('jquery');
+	wp_dequeue_script('form');
+}
+add_action('wp_enqueue_scripts', 'filters_scripts');
 
 /* Custom Post Types & taxonomies
 ************************************/

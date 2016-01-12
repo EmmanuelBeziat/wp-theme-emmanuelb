@@ -95,7 +95,7 @@
 						<nav class="secondary-menu">
 							<ul class="list-unstyled">
 								<li>
-									<a class="secondary-menu__link" href="http://download.emmanuelbeziat.com/emmanuel-beziat-cv2016.pdf" rel="prefetch" target="_blank">
+									<a class="secondary-menu__link" href="https://download.emmanuelbeziat.com/emmanuel-beziat-cv2016.pdf" rel="prefetch" target="_blank">
 										<i class="icon-code"></i>Téléchargez mon CV
 									</a>
 								</li>
