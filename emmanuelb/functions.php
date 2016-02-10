@@ -340,13 +340,19 @@ add_filter('the_title', 'insecables_title');
 /* Fonctions
 ************************************/
 function share_links($id) {
-	$titreArticle = strtolower(str_replace(' ', '%20', get_the_title($id))); ?>
+	$titreArticle = strtolower(str_replace(' ', '%20', get_the_title($id)));
+
+	$urlTwitter = 'https://twitter.com/share?url='. get_permalink($id) .'&amp;text='. $titreArticle .'&amp;via=EmmanuelBeziat';
+	$urlFacebook = 'https://www.facebook.com/sharer.php?u='. get_permalink($id) .'&amp;t='. $titreArticle;
+	$urlGoogle = 'https://plus.google.com/share?url='. get_permalink($id) .'&amp;hl=fr';
+	$urlLinkedIn = 'https://www.linkedin.com/shareArticle?mini=true&amp;url='. get_permalink($id) .'&amp;title='. $titreArticle;
+	?>
 	<div class="post-share">
 		<ul class="list-unstyled">
-			<li><a class="post-share__link" title="Partager sur Twitter" href="https://twitter.com/share?url=<?php echo get_permalink($id); ?>&amp;text=<?php echo $titreArticle; ?>&amp;via=EmmanuelBeziat" rel="nofollow" data-link="share"><i class="icon-twitter"></i>Partager sur Twitter</a></li>
-			<li><a class="post-share__link" title="Partager sur Faceook" href="https://www.facebook.com/sharer.php?u=<?php echo get_permalink($id); ?>&amp;t=<?php echo $titreArticle; ?>" rel="nofollow" data-link="share"><i class="icon-facebook"></i>Partager sur Facebook</a></li>
-			<li><a class="post-share__link" title="Partager sur Google+" href="https://plus.google.com/share?url=<?php echo get_permalink($id); ?>&amp;hl=fr" rel="nofollow" data-link="share"><i class="icon-googleplus"></i>Partager sur Google+</a></li>
-			<li><a class="post-share__link" title="Partager sur Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo get_permalink($id); ?>&amp;title=<?php echo $titreArticle; ?>" rel="nofollow" data-link="share"><i class="icon-linkedin"></i>Partager sur Linkedin</a></li>
+			<li><button class="post-share__link" title="Partager sur Twitter" data-url="<?php echo $urlTwitter ?>" data-link="share"><i class="icon-twitter"></i>Partager sur Twitter</button></li>
+			<li><button class="post-share__link" title="Partager sur Faceook" data-url="<?php echo $urlFacebook ?>" data-link="share"><i class="icon-facebook"></i>Partager sur Facebook</button></li>
+			<li><button class="post-share__link" title="Partager sur Google+" data-url="<?php echo $urlGoogle ?>" data-link="share"><i class="icon-googleplus"></i>Partager sur Google+</button></li>
+			<li><button class="post-share__link" title="Partager sur LinkedIn" data-url="<?php echo $urlLinkedIn ?>" data-link="share"><i class="icon-linkedin"></i>Partager sur Linkedin</button></li>
 		</ul>
 	</div>
 <?php }

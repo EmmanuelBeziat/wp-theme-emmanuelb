@@ -160,8 +160,15 @@ emmanuelb = (($) ->
 	###
 
 	shareLinks = (event) ->
-		url = $(this).attr('href')
-		window.open url, 'width=700', 'height=500', 'menubar=0', 'location=0', 'status=0', ' scrollbars=0'
+		url = $(this).attr('data-url')
+		left = window.screenLeft || window.screenX
+		top = window.screenTop || window.screenY
+		popupWidth = 640
+		popupHeight = 480
+		popupPosX = left + window.innerWidth / 2 - popupWidth / 2
+		popupPosY = top + window.innerHeight / 2 - popupHeight / 3
+
+		window.open url, 'Partager', 'width=' + popupWidth + ', height=' + popupHeight + ', menubar=0, location=0, scrollbars=yes, left=' + popupPosX + ', top=' + popupPosY + ', status=0'
 		event.preventDefault()
 		return
 
