@@ -67,7 +67,7 @@
 	</head>
 	<?php flush(); ?>
 	<body <?php body_class(); ?>>
-		<div class="site">
+		<div class="site" id="anchor-top">
 			<header class="site-header">
 				<div class="site-header__main">
 					<h1 class="site-header__title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Emmanuel B.</a></h1>
