@@ -18,7 +18,7 @@
 			if ( is_single() ) :
 				the_title( '<h1 class="post-header__title">', '</h1>' );
 			else :
-				the_title( '<a href="#anchor-top" class="back-top hidden-xl"><i class="icon-up"></i><span class="sr-only">Back to top</span></a><h1 class="post-header__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
+				the_title( '<a href="#anchor-top" class="back-top hidden-xl"><i class="icon-angle-up"></i><span class="sr-only">Back to top</span></a><h1 class="post-header__title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h1>' );
 			endif;
 
 			get_date_post();
