@@ -284,3 +284,17 @@
 
 	a:hover:after
 		right -5px
+
+/**
+ * Content
+ **/
+.video
+	iframe
+		border 0
+		width 100vw
+		max-width width-content
+		height 56.25vw
+
+		@media mediaquery-tablet
+			height calc(width-content * 0.5628205128205128)
+
